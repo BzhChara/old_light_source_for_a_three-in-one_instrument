@@ -425,6 +425,15 @@ public class PhotometerActivity extends BaseActivity implements OnClickListener 
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.bt_detect_reset:
+                if (Params.SKIP_PHOTOMETER_INIT) {
+                    resetAll();
+                    state = 2;
+                    btPrint.setEnabled(false);
+                    btStart.setEnabled(true);
+                    btReset.setEnabled(true);
+                    ToastUtil.showText("调试模式：已跳过分光模块初始化", Toast.LENGTH_SHORT);
+                    break;
+                }
                 new MyDialog(this, new BackListener() {
                     @Override
                     public void back() {

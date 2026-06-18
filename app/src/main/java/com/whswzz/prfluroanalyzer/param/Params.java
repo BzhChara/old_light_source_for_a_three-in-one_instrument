@@ -19,6 +19,7 @@ import top.jemen.utils.ExceptionHandler;
 public class Params {
 
 	public volatile static boolean DEBUG = Build.DEBUG;
+	public static boolean SKIP_PHOTOMETER_INIT = true; // 调试用：跳过非法添加分光模块初始化
 	public volatile static float K_Peak = 1;
 	public volatile static float B_Peak = 0;
 	public volatile static float K_Peak2 = 1;

@@ -19,6 +19,7 @@ import com.whswzz.prfluroanalyzer.fluoro.entity.FluData;
 import com.whswzz.prfluroanalyzer.model.HttpModel;
 import com.whswzz.prfluroanalyzer.param.Params;
 import com.whswzz.prfluroanalyzer.photometer.entity.PhotometerData;
+import com.whswzz.prfluroanalyzer.utils.LimitUnitUtil;
 import com.whswzz.prfluroanalyzer.utils.PrinterJPW;
 import com.zkzk.pra.R;
 import com.zkzk.pra.entity.Data;
@@ -123,28 +124,7 @@ public class ResultActivity extends BaseActivity implements OnClickListener {
 			tvSn.setText(resources.getString(R.string.specimen_sn) + COLON + data.getSn());
 			
 			tvSpecimen.setText(resources.getString(R.string.specimen_name) + COLON + data.getSpecimen());
-			tvLimit.setText(resources.getString(R.string.reference_limit) + COLON );
-
-			if (data instanceof FluData) {
-				tvLimit.append(String.format("%.3f", ((FluData) data).getLimit())+" mg/kg");
-			}else if(data instanceof PhotometerData) {
-
-			}else { //分光农残和酶片式酶抑制率
-				tvLimit.append("50%抑制率");
-			}
-
-
-
-
-			Map<String, Double> limits = MyApp.getApp().getLimits();
-			if(null!=limits) {
-				String key=data.getProj()+"-"+data.getSpecimen();
-				LogUtil.d(key);
-				Double v=limits.get(key);
-				if(null!=v) {
-					tvLimit.append(String.format("%.3f", v)+" mg/kg");
-				}
-			}
+			tvLimit.setText(resources.getString(R.string.reference_limit) + COLON + getReferenceLimitText());
 
 			tvCustomer.setText(resources.getString(R.string.customer_org) + COLON + data.getSourceUnit());
 			tvOperator.setText(resources.getString(R.string.operator) + COLON + data.getOperator());
@@ -209,6 +189,30 @@ public class ResultActivity extends BaseActivity implements OnClickListener {
 			ExceptionHandler.handleException(e);
 		}
 
+	}
+
+	private String getReferenceLimitText() {
+		if(data instanceof PhotometerData) {
+			return "";
+		}
+		if (!(data instanceof FluData)) { //分光农残和酶片式酶抑制率
+			return "50%抑制率";
+		}
+
+		String key = data.getProj() + "-" + data.getSpecimen();
+		LogUtil.d(key);
+		Map<String, Double> limits = MyApp.getApp().getLimits();
+		if(null!=limits) {
+			Double v = limits.get(key);
+			if(null!=v) {
+				return LimitUnitUtil.formatLimit(v, MyApp.getApp().getLimitUnits().get(key));
+			}
+		}
+
+		if(data instanceof FluData) {
+			return LimitUnitUtil.formatLimit(((FluData) data).getLimit(), null);
+		}
+		return "";
 	}
 
 	private String sText;

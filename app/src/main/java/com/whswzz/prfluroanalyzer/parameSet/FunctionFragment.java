@@ -13,6 +13,7 @@ import com.whswzz.prfluroanalyzer.app.MyApp;
 import com.whswzz.prfluroanalyzer.entity.Species;
 import com.whswzz.prfluroanalyzer.photometer.entity.Function;
 import com.whswzz.prfluroanalyzer.photometer.entity.PhotometerProj;
+import com.whswzz.prfluroanalyzer.utils.LimitUnitUtil;
 import com.zkzk.pra.R;
 import com.zkzk.pra.utils.ListUtil;
 import com.zkzk.pra.utils.ToastUtil;
@@ -39,7 +40,7 @@ import android.widget.AdapterView.OnItemSelectedListener;
 import top.jemen.interfaces.ICallback;
 import top.jemen.utils.LogUtil;
 
-public class FunctionFragment extends Fragment implements OnClickListener {
+public class FunctionFragment extends Fragment implements OnClickListener, OnItemSelectedListener {
     private View root;
     private Button btOk, btAddProj,btDeleteProj;
     private Spinner spProjs, spFunctionType;
@@ -50,11 +51,13 @@ public class FunctionFragment extends Fragment implements OnClickListener {
     private ImageButton ibAdd;
     private LayoutInflater inflater;
     private List<Species> lsSpecies = MyApp.getApp().getLsSpecies();
-    private EditText etUnit;
+    private Spinner spUnit;
     private List<PhotometerProj> projs = MyApp.getApp().getPhotoProjs();
     private EditText etProj;
     private ArrayAdapter<String> projAdapter;
     private List<String> projects;
+    private String currentUnit = LimitUnitUtil.UNIT_MG_KG;
+    private boolean ignoreUnitChange;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -80,7 +83,7 @@ public class FunctionFragment extends Fragment implements OnClickListener {
         llFunction = (LinearLayout) root.findViewById(R.id.ll_kvs);
         llkb = (LinearLayout) root.findViewById(R.id.ll_kb);
         ibAdd = (ImageButton) root.findViewById(R.id.ib_function_add);
-        etUnit = (EditText) root.findViewById(R.id.et_function_unit);
+        spUnit = (Spinner) root.findViewById(R.id.sp_function_unit);
         addItems(2);
 
         btAddProj = root.findViewById(R.id.bt_add_proj);
@@ -110,6 +113,11 @@ public class FunctionFragment extends Fragment implements OnClickListener {
 
 
     private void setSpnners() {
+        ArrayAdapter<String> unitAdapter = new ArrayAdapter<>(getActivity(), R.layout.my_spinner, LimitUnitUtil.LIMIT_UNITS);
+        unitAdapter.setDropDownViewResource(R.layout.my_spinner_dropdown);
+        spUnit.setAdapter(unitAdapter);
+        spUnit.setOnItemSelectedListener(this);
+
         ArrayAdapter<PhotometerProj> aad = new ArrayAdapter<>(getActivity(), R.layout.my_spinner, projs);
         aad.setDropDownViewResource(R.layout.my_spinner_dropdown);
         spProjs.setAdapter(aad);
@@ -149,16 +157,20 @@ public class FunctionFragment extends Fragment implements OnClickListener {
 
 
     protected void fillParam() {
-        LogUtil.d("proj:" + proj + ", specimen:" + specimen + ",function:" + proj.getFunction(specimen));
+        Function function = proj == null ? null : proj.getFunction(specimen);
+        LogUtil.d("proj:" + proj + ", specimen:" + specimen + ",function:" + function);
 
-        if (null == proj || proj.getFunction(specimen) == null) {
+        if (null == function) {
+            setUnitSelection(null);
             llFunction.removeViews(0, llFunction.getChildCount() - 1);
             addItems(2);
             return;
         }
 
+        setUnitSelection(function.getUnit());
+        String unit = getSelectedUnit();
 
-        double[][] ds = proj.getFunction(specimen).getParams();
+        double[][] ds = function.getParams();
 
 
         for (int i = 0; i < ds[0].length; i++) {
@@ -169,7 +181,7 @@ public class FunctionFragment extends Fragment implements OnClickListener {
             EditText etk = (EditText) ll.findViewById(R.id.et_function_item_ab);//吸光度
             etk.setText(String.format("%.4f", ds[0][i]));
             EditText etv = (EditText) ll.findViewById(R.id.et_function_item_con);
-            etv.setText(String.format("%.4f", ds[1][i]));
+            etv.setText(formatFunctionValue(ds[1][i], unit));
         }
         for (int i = llFunction.getChildCount() - 2; i >= ds[0].length; i--) {
             llFunction.removeViewAt(i);
@@ -250,11 +262,7 @@ public class FunctionFragment extends Fragment implements OnClickListener {
 //				ToastUtil.showText("请先选择样品类型", Toast.LENGTH_SHORT);
 //				return;
 //			}
-                String unit = etUnit.getText().toString();
-                if (TextUtils.isEmpty(unit)) {
-                    ToastUtil.showText("请填写浓度单位", Toast.LENGTH_SHORT);
-                    return;
-                }
+                String unit = getSelectedUnit();
 
                 Function f = new Function();
                 f.setUnit(unit);
@@ -271,8 +279,8 @@ public class FunctionFragment extends Fragment implements OnClickListener {
                     double b = Double.parseDouble(sb);
                     double[][] ds = new double[2][2];
                     ds[0] = new double[]{0, 10};
-                    ds[1][0] = 0 * k + b;
-                    ds[1][1] = 10 * k + b;
+                    ds[1][0] = LimitUnitUtil.toMgKg(0 * k + b, unit);
+                    ds[1][1] = LimitUnitUtil.toMgKg(10 * k + b, unit);
                     f.setParams(ds);
                 } else {
                     if (llFunction.getChildCount() < 3) {
@@ -293,7 +301,7 @@ public class FunctionFragment extends Fragment implements OnClickListener {
                             return;
                         }
                         ds[0][i] = Double.parseDouble(abs);
-                        ds[1][i] = Double.parseDouble(c);
+                        ds[1][i] = LimitUnitUtil.toMgKg(Double.parseDouble(c), unit);
                     }
                     //调整下排序
                     for (int i = ds[0].length - 1; i >= 0; i--) {
@@ -382,4 +390,69 @@ public class FunctionFragment extends Fragment implements OnClickListener {
     }
 
     private TeaPickerView teaPickerView, speciesPickerView;
+
+    private String getSelectedUnit() {
+        return LimitUnitUtil.normalizeUnit((String) spUnit.getSelectedItem());
+    }
+
+    private void setUnitSelection(String unit) {
+        String normalizedUnit = LimitUnitUtil.normalizeUnit(unit);
+        currentUnit = normalizedUnit;
+        for (int i = 0; i < LimitUnitUtil.LIMIT_UNITS.length; i++) {
+            if (LimitUnitUtil.LIMIT_UNITS[i].equals(normalizedUnit)) {
+                ignoreUnitChange = true;
+                spUnit.setSelection(i);
+                ignoreUnitChange = false;
+                return;
+            }
+        }
+        ignoreUnitChange = true;
+        spUnit.setSelection(0);
+        ignoreUnitChange = false;
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        if (parent.getId() != R.id.sp_function_unit) {
+            return;
+        }
+        String selectedUnit = LimitUnitUtil.normalizeUnit(parent.getItemAtPosition(position).toString());
+        if (ignoreUnitChange || selectedUnit.equals(currentUnit)) {
+            currentUnit = selectedUnit;
+            return;
+        }
+        convertInputValues(currentUnit, selectedUnit);
+        currentUnit = selectedUnit;
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+    }
+
+    private void convertInputValues(String oldUnit, String newUnit) {
+        for (int i = 0; i < llFunction.getChildCount() - 1; i++) {
+            View ll = llFunction.getChildAt(i);
+            convertInputValue((EditText) ll.findViewById(R.id.et_function_item_con), oldUnit, newUnit);
+        }
+        convertInputValue((EditText) llkb.findViewById(R.id.et_function_k), oldUnit, newUnit);
+        convertInputValue((EditText) llkb.findViewById(R.id.et_function_b), oldUnit, newUnit);
+    }
+
+    private void convertInputValue(EditText editText, String oldUnit, String newUnit) {
+        String value = editText.getText().toString();
+        if (TextUtils.isEmpty(value)) {
+            return;
+        }
+        try {
+            double displayValue = Double.parseDouble(value);
+            double storageValue = LimitUnitUtil.toMgKg(displayValue, oldUnit);
+            editText.setText(formatFunctionValue(storageValue, newUnit));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private String formatFunctionValue(double storageValue, String unit) {
+        return String.format("%.4f", LimitUnitUtil.fromMgKg(storageValue, unit));
+    }
 }

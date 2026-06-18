@@ -43,4 +43,8 @@ public class LimitUnitUtil {
 		String normalizedUnit = normalizeUnit(unit);
 		return formatValue(value, normalizedUnit) + " " + normalizedUnit;
 	}
+
+	public static String formatConcentration(double value, String unit) {
+		return formatLimit(value, unit);
+	}
 }

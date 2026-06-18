@@ -14,6 +14,7 @@ import com.whswzz.prfluroanalyzer.param.Params;
 import com.whswzz.prfluroanalyzer.photometer.entity.Function;
 import com.whswzz.prfluroanalyzer.photometer.entity.PhotometerData;
 import com.whswzz.prfluroanalyzer.photometer.entity.PhotometerProj;
+import com.whswzz.prfluroanalyzer.utils.LimitUnitUtil;
 import com.zkzk.pra.R;
 import com.zkzk.pra.utils.ExceptionHandler;
 
@@ -283,7 +284,7 @@ public class PhotometerView extends LinearLayout implements OnClickListener {
                         LogUtil.d("计算浓度:" + Arrays.toString(ps[1]));
 
                         double c = ps[1][i - 1] + (ps[1][i] - ps[1][i - 1]) / (ps[0][i] - ps[0][i - 1]) * (displayAbsorbance - ps[0][i - 1]);
-                        data.setResult(String.format("%.3f", c) + f.getUnit());
+                        data.setResult(LimitUnitUtil.formatConcentration(c, f.getUnit()));
                     }
                 }
 

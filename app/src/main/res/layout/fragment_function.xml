@@ -187,21 +187,16 @@
             android:text="浓度单位："
             android:textSize="@dimen/text_size" />
 
-        <EditText
-            android:id="@+id/et_function_unit"
-            style="@style/et_params"
+        <Spinner
+            android:id="@+id/sp_function_unit"
             android:layout_width="0dp"
             android:layout_height="60dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="30dp"
             android:layout_weight="1"
             android:background="@drawable/shape_border"
-            android:ems="10"
-            android:paddingLeft="10dp"
-            android:text="mg/kg" >
-
-            <requestFocus android:layout_height="match_parent" />
-        </EditText>
+            android:popupBackground="#f0000000"
+            android:spinnerMode="dropdown" />
 
         <Button
             android:id="@+id/bt_function_ok"
