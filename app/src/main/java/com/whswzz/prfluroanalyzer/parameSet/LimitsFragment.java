@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.whswzz.prfluroanalyzer.app.MyApp;
+import com.whswzz.prfluroanalyzer.utils.LimitUnitUtil;
 import com.whswzz.prfluroanalyzer.utils.UiUtil;
 import com.zkzk.pra.R;
 import com.zkzk.pra.utils.ToastUtil;
@@ -15,6 +16,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -25,10 +28,7 @@ import android.widget.Toast;
 import top.jemen.interfaces.ACallback;
 import top.jemen.interfaces.ICallback;
 
-public class LimitsFragment extends Fragment implements OnClickListener {
-    private static final String UNIT_MG_KG = "mg/kg(ppm)";
-    private static final String UNIT_UG_KG = "ug/kg(ppb)";
-    private static final String[] LIMIT_UNITS = {UNIT_MG_KG, UNIT_UG_KG};
+public class LimitsFragment extends Fragment implements OnClickListener, OnItemSelectedListener {
     private TextView tvProj, tvType;
     private EditText etLimit;
     private Spinner spUnit;
@@ -36,6 +36,8 @@ public class LimitsFragment extends Fragment implements OnClickListener {
     private View root;
     private Map<String, Double> limits;
     private Map<String, String> limitUnits;
+    private String currentUnit = LimitUnitUtil.UNIT_MG_KG;
+    private boolean ignoreUnitChange;
 
 
     @Override
@@ -59,9 +61,10 @@ public class LimitsFragment extends Fragment implements OnClickListener {
         }
         limitUnits = MyApp.getApp().getLimitUnits();
 
-        ArrayAdapter<String> unitAdapter = new ArrayAdapter<>(getActivity(), R.layout.my_spinner, LIMIT_UNITS);
+        ArrayAdapter<String> unitAdapter = new ArrayAdapter<>(getActivity(), R.layout.my_spinner, LimitUnitUtil.LIMIT_UNITS);
         unitAdapter.setDropDownViewResource(R.layout.my_spinner_dropdown);
         spUnit.setAdapter(unitAdapter);
+        spUnit.setOnItemSelectedListener(this);
     }
 
     private void setListeners() {
@@ -108,13 +111,14 @@ public class LimitsFragment extends Fragment implements OnClickListener {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                if (d < 0 || d > 1000) {
+                final String key = proj + "-" + type;
+                final String unit = spUnit.getSelectedItem().toString();
+                final double storageValue = LimitUnitUtil.toMgKg(d, unit);
+                if (storageValue < 0 || storageValue > 1000) {
                     ToastUtil.showText("请输入合理的参考限值", Toast.LENGTH_SHORT);
                     return;
                 }
-                final String key = proj + "-" + type;
-                final String unit = spUnit.getSelectedItem().toString();
-                limits.put(key, d);
+                limits.put(key, storageValue);
                 limitUnits.put(key, unit);
                 MyApp.getApp().saveLimits(limits, new ICallback() {
                     @Override
@@ -154,22 +158,54 @@ public class LimitsFragment extends Fragment implements OnClickListener {
             setLimitUnit(null);
             return;
         }
-        etLimit.setText(String.format("%.3f", limitValue));
-        setLimitUnit(limitUnits.get(key));
+        String unit = LimitUnitUtil.normalizeUnit(limitUnits.get(key));
+        setLimitUnit(unit);
+        etLimit.setText(LimitUnitUtil.formatValue(limitValue, unit));
     }
 
     private void setLimitUnit(String unit) {
-        if (TextUtils.isEmpty(unit)) {
-            unit = UNIT_MG_KG;
-        }
-        for (int i = 0; i < LIMIT_UNITS.length; i++) {
-            if (LIMIT_UNITS[i].equals(unit)) {
+        unit = LimitUnitUtil.normalizeUnit(unit);
+        currentUnit = unit;
+        for (int i = 0; i < LimitUnitUtil.LIMIT_UNITS.length; i++) {
+            if (LimitUnitUtil.LIMIT_UNITS[i].equals(unit)) {
+                ignoreUnitChange = true;
                 spUnit.setSelection(i);
+                ignoreUnitChange = false;
                 return;
             }
         }
+        ignoreUnitChange = true;
         spUnit.setSelection(0);
+        ignoreUnitChange = false;
     }
 
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        String selectedUnit = LimitUnitUtil.normalizeUnit(parent.getItemAtPosition(position).toString());
+        if (ignoreUnitChange || selectedUnit.equals(currentUnit)) {
+            currentUnit = selectedUnit;
+            return;
+        }
+        convertInputValue(currentUnit, selectedUnit);
+        currentUnit = selectedUnit;
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+    }
+
+    private void convertInputValue(String oldUnit, String newUnit) {
+        String limit = etLimit.getText().toString();
+        if (TextUtils.isEmpty(limit)) {
+            return;
+        }
+        try {
+            double displayValue = Double.parseDouble(limit);
+            double storageValue = LimitUnitUtil.toMgKg(displayValue, oldUnit);
+            etLimit.setText(LimitUnitUtil.formatValue(storageValue, newUnit));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
 }
