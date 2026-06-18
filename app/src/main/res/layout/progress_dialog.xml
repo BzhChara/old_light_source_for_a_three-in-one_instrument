@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="530dp"
+    android:layout_height="280dp"
+    android:background="#ffffef"
+    android:paddingBottom="10dp"
+    android:id="@+id/root">
+
+    <TextView
+        android:id="@+id/tv_prodialog_title"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#02062C"
+        android:text="@string/notice" 
+        android:paddingLeft="20dp"
+        android:gravity="center"
+        android:textSize="28sp"
+        android:textColor="#ffffff"
+        android:paddingRight="20dp"
+        />
+
+
+    <!-- 圆形的不用了。 -->
+    <ProgressBar
+        android:id="@+id/pb_prodialog"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="77dp"
+        android:visibility="gone"
+        android:layout_marginLeft="20dp" />
+    
+    <Button android:id="@+id/bt_cancel"
+        android:layout_width="200sp"
+        android:layout_height="wrap_content"
+        android:text="取   消"
+        android:padding="10dp"
+        android:background="@drawable/selector_button"
+        android:layout_centerHorizontal="true"
+        android:textSize="28dp"
+        android:textColor="#ffffff"
+        android:layout_marginBottom="10dp"
+        android:layout_alignParentBottom="true"/>
+
+    <ProgressBar
+        android:id="@+id/pb"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+         android:layout_below="@+id/tv_prodialog_title"
+         android:layout_marginTop="38dp"
+        android:layout_centerHorizontal="true"
+        android:background="#aaaaaa"
+        android:progress="0"
+        android:progressDrawable="@drawable/dr_pb" />
+
+    <LinearLayout
+        android:id="@+id/ll_timer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/remaining_time"
+            android:textSize="26sp" />
+
+        <TextView
+            android:id="@+id/tv_timer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="300s"
+            android:textSize="36sp" />
+    </LinearLayout>
+
+</RelativeLayout>

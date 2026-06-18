@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="600dp"
+    android:layout_height="430dp"
+    android:background="@drawable/shape_bg_dialog"
+    android:gravity="top|center"
+    android:orientation="vertical"
+    android:paddingBottom="5dp" >
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/shape_bg_top_30"
+        android:gravity="center"
+        android:text="@string/specimen_msg"
+        android:textColor="#fff"
+        android:textSize="26sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical" >
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/tv_channel"
+            style="@style/text_result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="酶片孵育设定" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:orientation="horizontal" >
+
+            <requestFocus />
+
+            <TextView
+                android:id="@+id/tv_specimen"
+                style="@style/text_result"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="孵育温度（℃）:" />
+
+            <EditText
+                android:id="@+id/et_temp"
+                style="@style/text_result"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="3dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="3dp"
+                android:background="@drawable/shape_border_small"
+                android:inputType="number"
+                android:text="37" />
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:orientation="horizontal" >
+
+            <requestFocus />
+
+            <TextView
+                android:id="@+id/tv_time"
+                style="@style/text_result"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="孵育时间(秒)：" />
+
+            <EditText
+                android:id="@+id/et_time"
+                style="@style/text_result"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="3dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="3dp"
+                android:background="@drawable/shape_border_small"
+                android:inputType="number"
+                android:text="180" />
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/bt_ok"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/selector_button"
+        android:text="确定"
+        android:textColor="#ffffff"
+        android:textSize="38sp" />
+
+</LinearLayout>

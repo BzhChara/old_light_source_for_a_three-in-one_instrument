@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="PRView">
+        <attr name="channel_num" format="string "></attr>
+    </declare-styleable>
+
+</resources>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/left_right"
+    android:background="@color/bg"
+    android:paddingRight="@dimen/left_right" >
+
+    <TextView
+        style="@style/text_set"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginLeft="1dp"
+        android:background="@drawable/shape_top_end_15"
+        android:gravity="center"
+        android:text="系统相关参数设置"
+        android:textSize="@dimen/text_size" />
+
+
+
+
+    
+    
+	<View android:layout_width="match_parent"
+	    android:layout_height="1dp"
+	    android:layout_marginTop="50dp"
+	    android:layout_marginBottom="50dp"
+	    android:background="#fff"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/text_set"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="分光矫正："
+            android:textSize="@dimen/text_size" />
+
+        <Spinner
+            android:id="@+id/sp_channel"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:background="@drawable/shape_border"
+            android:popupBackground="#f0000000"
+            android:spinnerMode="dropdown" />
+
+        <Spinner
+            android:id="@+id/sp_lite"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:background="@drawable/shape_border"
+            android:popupBackground="#f0000000"
+            android:spinnerMode="dropdown"
+            />
+
+        <EditText
+            android:id="@+id/et_photometer_k"
+            style="@style/text_set"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="70dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/shape_border"
+            android:popupBackground="#f0000000"
+            android:spinnerMode="dropdown"
+            android:inputType="numberSigned|numberDecimal"
+            android:hint="斜率"
+            android:tag="@string/proj" />
+        <EditText
+            android:id="@+id/et_photometer_b"
+            style="@style/text_set"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="70dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/shape_border"
+            android:popupBackground="#f0000000"
+            android:spinnerMode="dropdown"
+            android:inputType="numberSigned|numberDecimal"
+            android:hint="截距"
+            android:tag="@string/proj" />
+
+        <Button
+            android:id="@+id/bt_photometer"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/selector_button_red"
+            android:text="确定"
+            android:textColor="#ffffff"
+            android:textSize="30sp" />
+    </LinearLayout>
+
+    <Switch
+        android:id="@+id/sw_show_abnormal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="显示异常数据"
+        style="@style/text_set" />
+
+</LinearLayout>

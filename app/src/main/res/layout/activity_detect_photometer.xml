@@ -1,0 +1,280 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:jemen="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    android:orientation="vertical" >
+
+    <!-- 后来为什么去掉了动态加载？ -->
+
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/title" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_weight="1"
+        android:background="@null"
+        android:gravity="end"
+        android:orientation="vertical"
+        android:padding="10dp" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <TextView
+                style="@style/text_set"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="目标添加物种类:" />
+
+            <Spinner
+                android:id="@+id/sp_photometer_type"
+                android:layout_width="201dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_border_small"
+                android:popupBackground="#f0000000"
+                android:spinnerMode="dropdown"
+                android:tag="@string/proj" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <TextView
+                style="@style/text_set"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="光源:" />
+
+            <Spinner
+                android:id="@+id/sp_photometer_light"
+                android:layout_width="201dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_border_small"
+                android:popupBackground="#f0000000"
+                android:spinnerMode="dropdown"
+                android:clickable="true"
+                android:tag="@string/proj" />
+
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/tv_user"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="30dp"
+                android:gravity="center"
+                android:textColor="@color/text_w"
+                android:textSize="22sp" />
+
+            <RadioGroup
+                android:id="@+id/rg_detect_mode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="50dp"
+                android:orientation="horizontal">
+<!--                android:visibility="gone" >-->
+
+                <RadioButton
+                    android:id="@+id/rb_contrast"
+                    style="@style/text_set"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/contrast"
+                    android:textSize="24sp" />
+
+                <RadioButton
+                    android:id="@+id/rb_detect"
+                    style="@style/text_set"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="@string/detect"
+                    android:textSize="24sp" />
+            </RadioGroup>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_up"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="5dp"
+            android:layout_weight="1"
+            android:gravity="start|center_vertical"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                style="@style/prviews"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="gone" >
+
+                <TextView
+                    style="@style/text_set"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/absorbancy"
+                    android:textSize="24sp" />
+
+                <TextView
+                    style="@style/text_set"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="样品"
+                    android:textSize="24sp" />
+
+                <TextView
+                    style="@style/text_set"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/result"
+                    android:textSize="24sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        style="@style/text_set"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="@string/channel_number"
+                        android:textSize="24sp" />
+
+                    <CheckBox
+                        android:id="@+id/cb_use"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:button="@drawable/selector_checkbox"
+                        android:visibility="gone" />
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_down"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="start|center_vertical"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                style="@style/prviews"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="gone" >
+
+                <TextView
+                    style="@style/text_set"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/absorbancy"
+                    android:textSize="24sp" />
+
+                <TextView
+                    style="@style/text_set"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="样品"
+                    android:textSize="24sp" />
+
+                <TextView
+                    style="@style/text_set"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/result"
+                    android:textSize="24sp" />
+
+                <TextView
+                    style="@style/text_set"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/channel_number"
+                    android:textSize="24sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end|center_vertical"
+            android:orientation="horizontal"
+            android:paddingEnd="20dp" >
+
+            <CheckBox
+                android:id="@+id/cb_all"
+                style="@style/text_set"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="50dp"
+                android:button="@drawable/selector_checkbox"
+                android:text="@string/select_all" />
+
+            <Button
+                android:id="@+id/bt_detect_reset"
+                style="@style/bt_detect"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/selector_button"
+                android:text="@string/reset" />
+
+            
+
+            <Button
+                android:id="@+id/bt_detect_start"
+                style="@style/bt_detect"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/selector_button_red"
+                android:enabled="false"
+                android:text="@string/start_detect" />
+            
+            <Button
+                android:id="@+id/bt_detect_print"
+                style="@style/bt_detect"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/selector_button"
+                android:enabled="false"
+                android:text="@string/print" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <include layout="@layout/bottom_bar" />
+
+</LinearLayout>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:descendantFocusability="blocksDescendants"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:paddingBottom="3dp"
+    android:paddingTop="5dp" >
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.6"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <CheckBox
+            android:id="@+id/cb_item_select"
+            style="@style/list_title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:button="@drawable/selector_checkbox"
+            android:focusable="false" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_item_id"
+        style="@style/list_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.7"
+        android:text="ID号" />
+
+    <TextView
+        android:id="@+id/tv_item_channel"
+        style="@style/list_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.7"
+        android:text="12" />
+
+    <TextView
+        android:id="@+id/tv_item_sn"
+        style="@style/list_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.9"
+        android:text="0001" />
+
+    <TextView
+        android:id="@+id/tv_time"
+        style="@style/list_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.2"
+        android:text="2017-11-11" />
+
+    <TextView
+        android:id="@+id/tv_name"
+        style="@style/list_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="样品名称" />
+
+    <TextView
+        android:id="@+id/tv_proj"
+        style="@style/list_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="检测项目" />
+
+    <TextView
+        android:id="@+id/tv_inhibit_ratio"
+        style="@style/list_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="50%" />
+
+    <TextView
+        android:id="@+id/tv_result"
+        style="@style/list_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.0"
+        android:singleLine="true"
+        android:text="阴性" />
+
+    <TextView
+        android:id="@+id/tv_custom_org"
+        style="@style/list_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="送检单位" />
+
+    <TextView
+        android:id="@+id/tv_work_org"
+        style="@style/list_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="检测单位"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/tv_operator"
+        style="@style/list_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.9"
+        android:text="检测人员" />
+    <TextView
+        android:id="@+id/tv_uploaded"
+        style="@style/list_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.9"
+        android:text="" />
+
+</LinearLayout>

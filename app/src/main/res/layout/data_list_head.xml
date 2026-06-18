@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#29A6B3"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:paddingBottom="2dp"
+    android:paddingTop="3dp" >
+
+    <TextView
+        android:id="@+id/tv_item_select"
+        style="@style/list_title_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.6"
+        android:text="@string/select" />
+
+    <TextView
+        android:id="@+id/tv_item_id"
+        style="@style/list_title_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.7"
+        android:text="@string/id_number" />
+
+    <TextView
+        android:id="@+id/tv_item_channel"
+        style="@style/list_title_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.7"
+        android:text="@string/channel_number" />
+
+    <TextView
+        android:id="@+id/tv_item_sn"
+        style="@style/list_title_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.9"
+        android:text="@string/specimen_sn" />
+
+    <TextView
+        android:id="@+id/tv_time"
+        style="@style/list_title_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.2"
+        android:text="@string/detect_time" />
+
+    <TextView
+        android:id="@+id/tv_name"
+        style="@style/list_title_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/specimen_name" />
+
+    <TextView
+        android:id="@+id/tv_proj"
+        style="@style/list_title_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/detect_proj" />
+
+    <TextView
+        android:id="@+id/tv_inhibit_rate"
+        style="@style/list_title_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/inhibition_ratio" />
+
+    <TextView
+        android:id="@+id/tv_result"
+        style="@style/list_title_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.0"
+        android:text="@string/detect_result" />
+
+    <TextView
+        android:id="@+id/tv_custom_org"
+        style="@style/list_title_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/target_org" />
+
+    <TextView
+        android:id="@+id/tv_work_org"
+        style="@style/list_title_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="@string/detect_org"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/tv_operator"
+        style="@style/list_title_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.9"
+        android:text="@string/operator" />
+    <TextView
+        style="@style/list_title_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.9"
+        android:text="已上传" />
+
+</LinearLayout>

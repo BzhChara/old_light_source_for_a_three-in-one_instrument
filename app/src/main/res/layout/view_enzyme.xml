@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#27A8AD"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:layout_margin="1dp"
+    android:paddingEnd="5dp"
+    
+    android:paddingStart="5dp" >
+
+    <TextView
+        android:id="@+id/tv_enzyme_proj"
+        style="@style/text_pr"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.3"
+        android:text="农药残留(有机磷/氨基甲酸酯)速测卡" />
+
+    <Space
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="0.1" />
+
+    <TextView
+        android:id="@+id/tv_enzyme_specimen"
+        style="@style/text_pr"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+		android:text="样品信息"/>
+
+    <Space
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="0.1" />
+
+
+    <TextView
+        android:id="@+id/tv_result"
+        style="@style/text_pr"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="horizontal">
+         <TextView 
+            android:id="@+id/tv_channel_number"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:gravity="center|right"
+            android:text="1"/>
+        <CheckBox 
+            android:id="@+id/cb_use"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:checked="false"
+            android:button="@drawable/selector_checkbox"
+            />
+       
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    android:orientation="vertical" >
+<TextView
+        style="@style/text_set"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="1dp"
+        android:background="@drawable/shape_top_end_15"
+        android:gravity="center"
+        android:text="用户录入"
+        android:textSize="@dimen/text_size" />
+	<LinearLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="horizontal"
+	    android:gravity="center"
+	    android:layout_marginLeft="30dp">
+	    
+	    <TextView
+	        android:id="@+id/textView3"
+	        style="@style/text_set"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="机构名称："
+	        android:textSize="@dimen/text_size" />
+
+	    <EditText
+	        android:id="@+id/et_users_org"
+	        android:layout_width="0dp"
+	        android:layout_height="45dp"
+	        android:layout_weight="1"
+	        android:paddingLeft="10dp"
+	        android:ems="10" 
+	        android:layout_marginRight="30dp"
+	        android:layout_marginLeft="10dp"
+	        android:background="@drawable/shape_border"
+	        style="@style/et_params"
+			android:text="武汉上成生物快检室"
+	        >
+
+	        <requestFocus android:layout_height="match_parent" />
+
+	    </EditText>
+	    
+	</LinearLayout>
+	<LinearLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="horizontal"
+	    android:gravity="center"
+	    android:layout_marginLeft="30dp">
+	    
+	    <TextView
+	        style="@style/text_set"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="机构编号："
+	        android:textSize="@dimen/text_size" />
+
+	    <EditText
+	        android:id="@+id/et_users_code"
+	        android:layout_width="0dp"
+	        android:layout_height="45dp"
+	        android:layout_weight="1"
+	        android:paddingLeft="10dp"
+	        android:ems="10" 
+	        android:layout_marginRight="30dp"
+	        android:layout_marginLeft="10dp"
+	        android:background="@drawable/shape_border"
+	        style="@style/et_params"
+			android:text="4201151306"
+	        >
+
+	        <requestFocus android:layout_height="match_parent" />
+
+	    </EditText>
+	    
+	</LinearLayout>
+	<LinearLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="horizontal"
+	    android:gravity="center"
+	    android:layout_marginLeft="30dp">
+	    
+	    <TextView
+	        style="@style/text_set"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="用户密钥："
+	        android:textSize="@dimen/text_size" />
+
+	    <EditText
+	        android:id="@+id/et_users_token"
+	        android:layout_width="0dp"
+	        android:layout_height="60dp"
+	        android:layout_weight="1"
+	        android:paddingLeft="10dp"
+	        android:ems="10" 
+	        android:layout_marginRight="30dp"
+	        android:layout_marginLeft="10dp"
+	        android:background="@drawable/shape_border"
+	        style="@style/et_params"
+	        android:textSize="18sp"
+			android:text="12345"
+	        >
+
+	        <requestFocus android:layout_height="match_parent" />
+
+	    </EditText>
+	    
+	</LinearLayout>
+	<LinearLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="horizontal"
+	    android:gravity="center"
+		android:visibility="gone"
+	    android:layout_marginLeft="30dp">
+	    
+	    <TextView
+	        style="@style/text_set"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="用户地址："
+	        android:textSize="@dimen/text_size" />
+
+	    <EditText
+	        android:id="@+id/et_users_addr"
+	        android:layout_width="0dp"
+	        android:layout_height="45dp"
+	        android:layout_weight="1"
+	        android:paddingLeft="10dp"
+	        android:ems="10" 
+	        android:layout_marginRight="30dp"
+	        android:layout_marginLeft="10dp"
+	        android:background="@drawable/shape_border"
+	        style="@style/et_params"
+	        >
+
+	        <requestFocus android:layout_height="match_parent" />
+
+	    </EditText>
+	    
+	</LinearLayout>
+	<LinearLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="horizontal"
+	    android:gravity="center"
+	    android:layout_marginLeft="30dp">
+	    
+	    <TextView
+	        style="@style/text_set"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="设备编号 ："
+	        android:textSize="@dimen/text_size" />
+
+	    <EditText
+	        android:id="@+id/et_users_contact"
+	        android:layout_width="0dp"
+	        android:layout_height="45dp"
+	        android:layout_weight="1"
+	        android:paddingLeft="10dp"
+	        android:ems="10" 
+	        android:layout_marginRight="30dp"
+	        android:layout_marginLeft="10dp"
+	        android:background="@drawable/shape_border"
+	        style="@style/et_params"
+			android:text="4201151306B02"
+	        >
+
+	        <requestFocus android:layout_height="match_parent" />
+
+	    </EditText>
+	    
+	</LinearLayout>
+	<LinearLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="horizontal"
+	    android:gravity="center"
+	    android:layout_marginLeft="30dp">
+	    
+	    <TextView
+	        style="@style/text_set"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="检测人编号："
+	        android:textSize="@dimen/text_size" />
+
+	    <EditText
+	        android:id="@+id/et_users_phone"
+	        android:layout_width="0dp"
+	        android:layout_height="45dp"
+	        android:layout_weight="1"
+	        android:paddingLeft="10dp"
+	        android:ems="10" 
+	        android:layout_marginRight="30dp"
+	        android:layout_marginLeft="10dp"
+	        android:background="@drawable/shape_border"
+	        style="@style/et_params"
+			android:text="4201151306A01"
+	        >
+
+	        <requestFocus android:layout_height="match_parent" />
+
+	    </EditText>
+	    
+	</LinearLayout>
+	<LinearLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="horizontal"
+	    android:gravity="center"
+	    android:layout_marginLeft="30dp">
+	    
+	    <TextView
+	        style="@style/text_set"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="检测人员："
+	        android:textSize="@dimen/text_size" />
+
+	    <EditText
+	        android:id="@+id/et_users_operator"
+	        android:layout_width="0dp"
+	        android:layout_height="45dp"
+	        android:layout_weight="1"
+	        android:paddingLeft="10dp"
+	        android:ems="10" 
+	        android:layout_marginRight="30dp"
+	        android:layout_marginLeft="10dp"
+	        android:background="@drawable/shape_border"
+	        style="@style/et_params"
+			android:text="郑天"
+	        >
+	        <requestFocus android:layout_height="match_parent" />
+
+	    </EditText>
+	    
+	</LinearLayout>
+	 <LinearLayout 
+	     android:layout_width="match_parent"
+	     android:layout_height="wrap_content"
+	     android:layout_weight="1"
+	     android:gravity="center_vertical|end">
+	    <Button 
+	        android:id="@+id/bt_users_add"
+	        android:layout_width="100dp"
+	        android:layout_height="wrap_content"
+	        android:text="确定"
+	        android:background="@drawable/selector_button_red"
+	        android:layout_marginEnd="45dp"
+	        android:textColor="#ffffff"
+	        android:textSize="26sp"
+	        />
+	 </LinearLayout>
+<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/text_set"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="   浏览    ："
+            android:textSize="@dimen/text_size" />
+
+        <Spinner
+            android:id="@+id/sp_users_scan"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="30dp"
+            android:layout_weight="1"
+            android:background="@drawable/shape_border"
+            android:popupBackground="#f0000000"
+            android:spinnerMode="dropdown"
+            android:tag="@string/proj" />
+
+        <Button
+            android:id="@+id/bt_users_delete"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="45dp"
+            android:background="@drawable/selector_button_red"
+            android:text="删除"
+            android:textColor="#ffffff"
+            android:textSize="26sp" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@null"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/ll_collaurum_channels"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center|bottom"
+        android:orientation="horizontal" >
+
+        <!-- 
+      
+        
+        <LinearLayout
+            android:id="@+id/ll_collaurum_l"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1" >
+
+            <TextView
+                android:id="@+id/tv_collaurum_channel"
+                style="@style/text_set"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center|bottom"
+                android:text="@string/channel_number_" />
+
+            <TextView
+                android:id="@+id/tv_collaurum_specimen"
+                style="@style/text_set"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/specimen_msg" />
+
+            <TextView
+                android:id="@+id/tv_collaurum_result"
+                style="@style/text_set"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/detect_result" />
+            <LinearLayout 
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                >
+                
+                <Button android:id="@+id/bt_collaurum_print"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/print"/>
+                <Button android:id="@+id/bt_collaurum_upload"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/print"/>
+            </LinearLayout>
+        </LinearLayout>
+        
+         <LinearLayout
+            android:id="@+id/ll_collaurum_right"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:layout_weight="1" >
+
+            <TextView
+                android:id="@+id/tv_collaurum_channel2"
+                style="@style/text_set"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/channel_number_" />
+
+            <TextView
+                android:id="@+id/tv_collaurum_specimen2"
+                style="@style/text_set"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/specimen_msg" />
+
+            <TextView
+                android:id="@+id/tv_collaurum_result2"
+                style="@style/text_set"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/detect_result" />
+             <LinearLayout 
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                >
+                
+                <Button android:id="@+id/bt_collaurum_print_r"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/print"/>
+                <Button android:id="@+id/bt_collaurum_upload_r"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/upload"/>
+            </LinearLayout>
+        </LinearLayout>
+           -->
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/iv_hump"
+        android:layout_width="200dp"
+        android:layout_height="160dp"
+        android:src="@drawable/shape_ract"
+        android:scaleType="fitXY" />
+
+</LinearLayout>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        style="@style/text_set"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/shape_top_end_15"
+        android:layout_marginLeft="1dp"
+        android:gravity="center"
+        android:text="@string/data_upload"
+        android:textSize="@dimen/text_size" />
+
+    <TextView
+        style="@style/text_set"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:text="@string/input_server_url" />
+
+    <TextView
+        android:id="@+id/textView2"
+        style="@style/text_set"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:layout_marginTop="150dp"
+        android:text="@string/server_url"
+        android:textSize="@dimen/text_size" 
+        />
+	<LinearLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="horizontal"
+	    android:gravity="center"
+	    android:layout_marginLeft="30dp">
+	    
+	    <TextView
+        android:id="@+id/textView3"
+        style="@style/text_set"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="URL"
+        android:textSize="@dimen/text_size" />
+
+	    <EditText
+	        android:id="@+id/et_set_url"
+	        android:layout_width="0dp"
+	        android:layout_height="100dp"
+	        android:layout_weight="1"
+	        android:paddingLeft="10dp"
+	        android:ems="10" 
+	        android:layout_marginRight="30dp"
+	        android:layout_marginLeft="10dp"
+	        android:background="@drawable/shape_border"
+	        android:textSize="@dimen/text_size"
+	        android:textColor="@color/text_black"
+	        android:inputType="textUri"
+	        android:hint="https://www"
+	        >
+
+	        <requestFocus android:layout_height="match_parent" />
+
+	    </EditText>
+		<Button
+			android:id="@+id/bt_url_ok"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/ok"
+			android:background="@drawable/selector_button_red"
+			android:layout_marginEnd="80dp"
+			android:textColor="#ffffff"
+			android:textSize="30sp"
+			/>
+	</LinearLayout>
+	 <Button
+            android:id="@+id/bt_laws"
+            style="@style/text_set"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_set_version"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="60dp"
+            android:background="@null"
+            android:text="@string/laws_and_regulations" />
+	<LinearLayout
+		android:id="@+id/ll_regist"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginLeft="30dp"
+		android:layout_marginTop="30dp"
+		android:gravity="left">
+		<Button
+			android:id="@+id/bt_regist"
+			style="@style/text_set"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_below="@+id/tv_set_version"
+
+			android:background="@null"
+			android:text="@string/regist" />
+
+	</LinearLayout>
+
+</LinearLayout>

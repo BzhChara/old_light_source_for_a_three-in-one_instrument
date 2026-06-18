@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+<LinearLayout 
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    <TextView
+        style="@style/text_set"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginLeft="1dp"
+        android:background="@drawable/shape_top_end_15"
+        android:gravity="center"
+        android:text="@string/normal_set"
+        android:textSize="@dimen/text_size" />
+
+    <TextView
+        style="@style/text_set"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:visibility="gone"
+        android:text="@string/language_set" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_margin="7dp"
+        android:background="@drawable/shape_border"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        android:padding="20dp" >
+
+        <TextView
+            style="@style/text_set"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/bg_w"
+            android:gravity="left"
+            android:text="@string/system_language_set" />
+
+        <Switch
+            android:id="@+id/switch_language"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:switchTextAppearance="@style/switch_text"
+            android:textOn="@string/chinese"
+            android:textOff="@string/english"
+            android:checked="true"
+            android:switchMinWidth="200dp"
+            android:text="@null"
+            android:thumb="@drawable/selector_thumb"
+            android:thumbTextPadding="50dp"
+            android:track="@drawable/selector_track" />
+    </LinearLayout>
+
+    
+    
+     <TextView
+        style="@style/text_set"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:visibility="gone"
+        android:text="@string/voice_guide" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_margin="7dp"
+        android:background="@drawable/shape_border"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        android:padding="20dp" >
+
+        <TextView
+            style="@style/text_set"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/bg_w"
+            android:gravity="left"
+            android:text="@string/voice_guide_toggle" />
+
+        <Switch
+            android:id="@+id/switch_voice_guide"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:textOn="@string/auto"
+            android:textOff="@string/manual"
+            android:switchMinWidth="200dp"
+            android:text="@null"
+            android:thumb="@drawable/selector_thumb"
+            android:thumbTextPadding="50dp"
+            android:track="@drawable/selector_track" />
+    </LinearLayout>
+    
+    
+    
+    <TextView
+        style="@style/text_set"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:text="@string/print_set" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_margin="7dp"
+        android:background="@drawable/shape_border"
+        android:orientation="horizontal"
+        android:padding="20dp" >
+
+        <TextView
+            style="@style/text_set"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="left"
+            android:text="@string/auto_print_set" />
+
+        <Switch
+            android:id="@+id/switch_print"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:textOn="@string/auto"
+            android:switchTextAppearance="@style/switch_text"
+            android:textOff="@string/manual"
+            android:switchMinWidth="200dp"
+            android:text="@null"
+            android:thumb="@drawable/selector_thumb"
+            android:thumbTextPadding="50dp"
+            android:track="@drawable/selector_track" />
+    </LinearLayout>
+
+     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_margin="7dp"
+        android:background="@drawable/shape_border"
+        android:orientation="horizontal"
+        android:padding="20dp" >
+
+        <TextView
+            style="@style/text_set"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="left"
+            android:text="@string/print_msg_set" />
+
+        <Switch
+            android:id="@+id/switch_print_msg"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:textOn="@string/detail"
+            android:switchTextAppearance="@style/switch_text"
+            android:textOff="@string/summary"
+            android:switchMinWidth="200dp"
+            android:text="@null"
+            android:thumb="@drawable/selector_thumb"
+            android:thumbTextPadding="50dp"
+            android:track="@drawable/selector_track" />
+    </LinearLayout>
+    
+    <TextView
+        style="@style/text_set"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:visibility="gone"
+        android:text="@string/map_show" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_margin="7dp"
+        android:background="@drawable/shape_border"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        android:padding="20dp" >
+
+        <TextView
+            style="@style/text_set"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/bg_w"
+            android:gravity="left"
+            android:text="@string/map_show" />
+
+        <Switch
+            android:id="@+id/switch_map"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:textOn="@string/on"
+            android:switchTextAppearance="@style/switch_text"
+            android:textOff="@string/off"
+            android:switchMinWidth="200dp"
+            android:text="@null"
+            android:thumb="@drawable/selector_thumb"
+            android:thumbTextPadding="50dp"
+            android:track="@drawable/selector_track" />
+    </LinearLayout>
+    
+    
+    
+    
+    <TextView
+        style="@style/text_set"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:gravity="center_vertical"
+        android:text="@string/timeset" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_margin="7dp"
+        android:background="@drawable/shape_border"
+        android:orientation="horizontal"
+        android:padding="20dp" >
+
+        <TextView
+            android:id="@+id/tv_time_set"
+            style="@style/text_set"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="left"
+            android:text="@string/timeset" />
+
+        <TextView
+            android:id="@+id/tv_set_normal_date"
+            style="@style/text_set"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:padding="3dp"
+            android:text="2017-11-20 "
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <com.zkzk.pra.ui.Clock
+            android:id="@+id/tv_set_normal_time"
+            style="@style/text_set"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:padding="3dp"
+            android:text="15:20"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+    </LinearLayout>
+
+    <!--LinearLayout	
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal" >
+        <DatePicker		
+            android:id="@+id/dp_set"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:calendarViewShown="false"
+            android:visibility="gone" />
+
+        <TimePicker
+            android:id="@+id/tp_set"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
+    </LinearLayout-->
+</LinearLayout>    
+</ScrollView>

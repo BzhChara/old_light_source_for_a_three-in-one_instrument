@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:id="@+id/ll_collaurum_channel"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/tv_collaurum_channel"
+        style="@style/text_set"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/channel_number_" />
+
+    <TextView
+        android:id="@+id/tv_collaurum_specimen"
+        style="@style/text_set"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/specimen_msg" />
+
+    <TextView
+        android:id="@+id/tv_collaurum_result"
+        style="@style/text_set"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/detect_result" />
+
+    <CheckBox
+        android:id="@+id/cb_collaurum_use"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        style="@style/text_set"
+        android:paddingLeft="10dp"
+        android:paddingEnd="10dp"
+         android:button="@drawable/selector_checkbox"
+        android:text="选择"/>
+
+
+    <!--
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/bt_collaurum_print"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/print" />
+
+        <Button
+            android:id="@+id/bt_collaurum_upload"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/upload" />
+    </LinearLayout>
+    -->
+
+</LinearLayout>

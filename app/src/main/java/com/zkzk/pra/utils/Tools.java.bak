@@ -1,0 +1,375 @@
+package com.zkzk.ecas.utils;
+
+import java.net.InetAddress;
+import java.net.NetworkInterface;
+import java.util.Locale;
+
+import android.app.Activity;
+import android.content.Context;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Rect;
+import android.telephony.TelephonyManager;
+
+public class Tools {
+	/**
+	 * 得当前版本号
+	 * @param context
+	 * @return
+	 * @throws NameNotFoundException
+	 */
+	public static String getCurrentVersion(Context context)
+			throws NameNotFoundException {
+		// 管理包
+		PackageManager packageManager = context.getPackageManager();
+		String packageName = context.getPackageName();
+
+		PackageInfo packageInfo = packageManager.getPackageInfo(packageName, 0);
+		String versionName = packageInfo.versionName;
+		return versionName;
+	}
+	
+	public static int getCurrentV(Context context)
+			throws NameNotFoundException {
+		// 管理包
+		PackageManager packageManager = context.getPackageManager();
+		String packageName = context.getPackageName();
+
+		PackageInfo packageInfo = packageManager.getPackageInfo(packageName, 0);
+		return packageInfo.versionCode;
+	}
+	
+	
+	/**---------------------------------  
+     * 绘制图片  
+     * @param       x屏幕上的x坐标  
+     * @param       y屏幕上的y坐标  
+     * @param       w要绘制的图片的宽度  
+     * @param       h要绘制的图片的高度  
+     * @param       bx图片上的x坐标  
+     * @param       by图片上的y坐标  
+     *   
+     * @return      null  
+     ------------------------------------*/  
+    public static void drawImage(Canvas canvas, Bitmap blt, int x, int y,   
+            int w, int h, int bx, int by) {   
+       Rect src = new Rect();// 图片 >>原矩形   
+        Rect dst = new Rect();// 屏幕 >>目标矩形   
+  
+        src.left = bx;   
+       src.top = by;   
+       src.right = bx + w;   
+       src.bottom = by + h;   
+  
+       dst.left = x;   
+       dst.top = y;   
+       dst.right = x + w;   
+       dst.bottom = y + h;   
+        // 画出指定的位图，位图将自动--》缩放/自动转换，以填补目标矩形   
+         // 这个方法的意思就像 将一个位图按照需求重画一遍，画后的位图就是我们需要的了   
+        canvas.drawBitmap(blt, null, dst, null);   
+       src = null;   
+       dst = null;   
+    }  
+
+    
+    
+    /**获取MAC地址的方法
+     * @param ia 如果为null则获取本机的MAC地址
+     * @return
+     * @throws Exception
+     */
+    private static String getMACAddress(InetAddress ia)throws Exception{    
+        //获得网络接口对象（即网卡），并得到mac地址，mac地址存在于一个byte数组中。    
+    	if(null==ia) {
+    		ia=InetAddress.getLocalHost();
+    	}
+        byte[] mac = NetworkInterface.getByInetAddress(ia).getHardwareAddress();    
+            
+        //下面代码是把mac地址拼装成String    
+        StringBuffer sb = new StringBuffer();    
+            
+        for(int i=0;i<mac.length;i++){    
+            if(i!=0){    
+                sb.append("-");    
+            }    
+            //mac[i] & 0xFF 是为了把byte转化为正整数    
+            String s = Integer.toHexString(mac[i] & 0xFF);    
+            sb.append(s.length()==1?0+s:s);    
+        }    
+            
+        //把字符串所有小写字母改为大写成为正规的mac地址并返回    
+        return sb.toString().toUpperCase();    
+    }   
+    
+    
+    
+    /** 
+     * 获取当前手机系统语言。 
+     * 
+     * @return 返回当前系统语言。例如：当前设置的是“中文-中国”，则返回“zh-CN” 
+     */  
+    public static String getSystemLanguage() {  
+        return Locale.getDefault().getLanguage();  
+    }  
+  
+    /** 
+     * 获取当前系统上的语言列表(Locale列表) 
+     * 
+     * @return  语言列表 
+     */  
+    public static Locale[] getSystemLanguageList() {  
+        return Locale.getAvailableLocales();  
+    }  
+  
+    /** 
+     * 获取当前手机系统版本号 
+     * 
+     * @return  系统版本号 
+     */  
+    public static String getSystemVersion() {  
+        return android.os.Build.VERSION.RELEASE;  
+    }  
+  
+    /** 
+     * 获取手机型号 
+     * 
+     * @return  手机型号 
+     */  
+    public static String getSystemModel() {  
+        return android.os.Build.MODEL;  
+    }  
+  
+    /** 
+     * 获取手机厂商 
+     * 
+     * @return  手机厂商 
+     */  
+    public static String getDeviceBrand() {  
+        return android.os.Build.BRAND;  
+    }  
+  
+    /** 
+     * 获取手机IMEI(需要“android.permission.READ_PHONE_STATE”权限) 
+     * 
+     * @return  手机IMEI 
+     */  
+    public static String getIMEI(Context ctx) {  
+        TelephonyManager tm = (TelephonyManager) ctx.getSystemService(Activity.TELEPHONY_SERVICE);  
+        if (tm != null) {  
+            return tm.getDeviceId();  
+        }  
+        return null;  
+    }  
+    
+    /**
+     * 返回从start开始第一个b的位置
+     * @param bs
+     * @param start
+     * @return
+     */
+   public static int getIndex(byte[] bs,byte b,int start) {
+    	for(int i=start;i<bs.length;i++)
+    		if(bs[i]==b)	
+    			return i;
+    	return -1;
+    }
+ 
+   /**
+    * 判断是不是三星smdk4*12的芯片。迅为的板子均采用此款芯片。
+    * @return
+    */
+	public static boolean isSMDK() {
+		return "smdk4x12".equals(android.os.Build.HARDWARE);
+	}
+
+
+
+	public static void reCreate(final String msg)
+	{
+	  MyApplication localMyApplication = MyApplication.getApp();
+	  new Thread()
+	  {
+	    public void run()
+	    {
+	      Looper.prepare();
+	      ToastUtil.showText(msg, Toast.LENGTH_SHORT);
+	      Looper.loop();
+	    }
+	  }.start();
+	  PendingIntent pendingIntent = PendingIntent.getActivity(localMyApplication, 100, new Intent(localMyApplication, MainActivity.class), 268435456);
+	  ((AlarmManager)localMyApplication.getSystemService("alarm")).set(1, System.currentTimeMillis() + 600L, pendingIntent);
+	  try
+	  {
+	    Thread.currentThread();
+	    Thread.sleep(800L);
+	    MyApplication.getApp().finish();
+	    return;
+	  }
+	  catch (Exception e)
+	  {
+	    ExceptionHandler.handleException(e);
+	  }
+	}
+
+/**
+	 * install slient	系统权限
+	 * @param context
+	 * @param filePath
+	 * @return 0 means normal, 1 means file not exist, 2 means other exception error
+	 */
+	public static int installSlient(Context context, String filePath) {
+		File file = new File(filePath);
+		if (filePath == null || filePath.length() == 0 || (file = new File(filePath)) == null || file.length() <= 0
+				|| !file.exists() || !file.isFile()) {
+			return 1;
+		}
+
+		String[] args = { "pm", "install", "-r", filePath };
+		ProcessBuilder processBuilder = new ProcessBuilder(args);
+
+		Process process = null;
+		BufferedReader successResult = null;
+		BufferedReader errorResult = null;
+		StringBuilder successMsg = new StringBuilder();
+		StringBuilder errorMsg = new StringBuilder();
+		int result;
+		try {
+			process = processBuilder.start();
+			successResult = new BufferedReader(new InputStreamReader(process.getInputStream()));
+			errorResult = new BufferedReader(new InputStreamReader(process.getErrorStream()));
+			String s;
+
+			while ((s = successResult.readLine()) != null) {
+				successMsg.append(s);
+			}
+
+			while ((s = errorResult.readLine()) != null) {
+				errorMsg.append(s);
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+			result = 2;
+		} catch (Exception e) {
+			e.printStackTrace();
+			result = 2;
+		} finally {
+			try {
+				if (successResult != null) {
+					successResult.close();
+				}
+				if (errorResult != null) {
+					errorResult.close();
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			if (process != null) {
+				process.destroy();
+			}
+		}
+
+		// TODO should add memory is not enough here
+		if (successMsg.toString().contains("Success") || successMsg.toString().contains("success")) {
+			result = 0;
+		} else {
+			result = 2;
+		}
+		Log.d("installSlient", "successMsg:" + successMsg + ", ErrorMsg:" + errorMsg);
+		return result;
+	}
+
+	/**
+	 * 需要root权限
+	 * @param apkPath
+	 * @return
+	 */
+	public static boolean install(String apkPath) {
+		
+        Process process = null;
+        OutputStream out = null;
+        InputStream in = null;
+
+        try {
+            process = Runtime.getRuntime().exec("su");
+            out = process.getOutputStream();
+
+            out.write(("pm install -r " + apkPath + "\n").getBytes());
+            in = process.getInputStream();
+            int len = 0;
+            byte[] bs = new byte[256];
+
+            while (-1 != (len = in.read(bs))) {
+                String state = new String(bs, 0, len);
+                if (state!=null&&state.contains("Success\n")) {
+
+                   return true;
+                }
+            }
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+		
+		return false;
+	}
+
+	
+}
+
+
+//一、获取手机信息
+//
+//Android获取手机制作商，系统版本等
+//
+//获取Android 的Rom信息，以及判断是否为MIUI及获取MIUI版本
+//
+//在开发中 我们有时候会需要获取当前手机的系统版本来进行判断，或者需要获取一些当前手机的硬件信息。
+//
+//android.os.Build类中。包括了这样的一些信息。我们可以直接调用 而不需要添加任何的权限和方法。
+//
+//android.os.Build.BOARD：获取设备基板名称
+//android.os.Build.BOOTLOADER:获取设备引导程序版本号
+//android.os.Build.BRAND：获取设备品牌
+//
+//android.os.Build.CPU_ABI：获取设备指令集名称（CPU的类型）
+//
+//android.os.Build.CPU_ABI2：获取第二个指令集名称
+//
+//android.os.Build.DEVICE：获取设备驱动名称
+//android.os.Build.DISPLAY：获取设备显示的版本包（在系统设置中显示为版本号）和ID一样
+//android.os.Build.FINGERPRINT：设备的唯一标识。由设备的多个信息拼接合成。
+//
+//android.os.Build.HARDWARE：设备硬件名称,一般和基板名称一样（BOARD）
+//
+//android.os.Build.HOST：设备主机地址
+//android.os.Build.ID:设备版本号。
+//
+//android.os.Build.MODEL ：获取手机的型号 设备名称。
+//
+//android.os.Build.MANUFACTURER:获取设备制造商
+//
+//android:os.Build.PRODUCT：整个产品的名称
+//
+//android:os.Build.RADIO：无线电固件版本号，通常是不可用的 显示unknown
+//android.os.Build.TAGS：设备标签。如release-keys 或测试的 test-keys
+//
+//android.os.Build.TIME：时间
+//
+//android.os.Build.TYPE:设备版本类型 主要为”user” 或”eng”.
+//
+//android.os.Build.USER:设备用户名 基本上都为android-build
+//
+//android.os.Build.VERSION.RELEASE：获取系统版本字符串。如4.1.2 或2.2 或2.3等
+//
+//android.os.Build.VERSION.CODENAME：设备当前的系统开发代号，一般使用REL代替
+//android.os.Build.VERSION.INCREMENTAL：系统源代码控制值，一个数字或者git hash值
+//
+//android.os.Build.VERSION.SDK：系统的API级别 一般使用下面大的SDK_INT 来查看
+//
+//android.os.Build.VERSION.SDK_INT：系统的API级别 数字表示
+//
+//android.os.Build.VERSION_CODES类 中有所有的已公布的Android版本号。全部是Int常亮。可用于与SDK_INT进行比较来判断当前的系统版本

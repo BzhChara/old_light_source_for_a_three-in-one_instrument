@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/left_right"
+    android:paddingRight="@dimen/left_right"
+    tools:context="com.whswzz.prfluroanalyzer.parameSet.ProjsFragment" >
+
+    <TextView
+        style="@style/text_set"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginLeft="1dp"
+        android:background="@drawable/shape_top_end_15"
+        android:gravity="center"
+        android:text="检测项目"
+        android:textSize="@dimen/text_size" />
+
+    <TextView
+        style="@style/text_set"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="新增检测项目大类" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/textView3"
+            style="@style/text_set"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="项目大类："
+            android:textSize="@dimen/text_size" />
+
+        <EditText
+            android:id="@+id/et_projs_kind"
+            style="@style/et_params"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="30dp"
+            android:layout_weight="1"
+            android:background="@drawable/shape_border"
+            android:ems="10"
+            android:paddingLeft="10dp">
+
+            <requestFocus android:layout_height="match_parent" />
+        </EditText>
+
+        <Button
+            android:id="@+id/bt_projs_kind_add"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="80dp"
+            android:background="@drawable/selector_button_red"
+            android:text="添加"
+            android:textColor="#ffffff"
+            android:textSize="30sp" />
+        
+        
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/gray" />
+
+    <TextView
+        style="@style/text_set"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:text="检测项目" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/text_set"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="所属大类："
+            android:textSize="@dimen/text_size" />
+
+        <Spinner
+            android:id="@+id/spinner_projs_kind"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="30dp"
+            android:layout_weight="1"
+            android:background="@drawable/shape_border"
+            android:popupBackground="#f0000000"
+            android:spinnerMode="dropdown"
+            android:tag="@string/proj" />
+
+        <Button
+            android:id="@+id/bt_proj_kind_delete"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="80dp"
+            android:background="@drawable/selector_button_red"
+            android:text="删除"
+            android:textColor="#ffffff"
+            android:textSize="30sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/text_set"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="检测项目："
+            android:textSize="@dimen/text_size" />
+
+        <EditText
+            android:id="@+id/et_proj_name"
+            style="@style/et_params"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="30dp"
+            android:layout_weight="1"
+            android:background="@drawable/shape_border"
+            android:ems="10"
+            android:paddingLeft="10dp" >
+
+            <requestFocus android:layout_height="match_parent" />
+        </EditText>
+
+        <Button
+            android:id="@+id/bt_projs_add"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/selector_button_red"
+            android:text="添加"
+            android:textColor="#ffffff"
+            android:textSize="30sp" />
+        <Button
+            android:id="@+id/bt_projs_delete"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="80dp"
+            android:background="@drawable/selector_button_red"
+            android:text="删除"
+            android:textColor="#ffffff"
+            android:textSize="30sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/text_set"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="调整系数："
+            android:textSize="@dimen/text_size" />
+
+        <EditText
+            android:id="@+id/et_adjust_name"
+            style="@style/et_params"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="30dp"
+            android:layout_weight="1"
+            android:background="@drawable/shape_border"
+            android:ems="10"
+            android:paddingLeft="10dp" >
+
+            <requestFocus android:layout_height="match_parent" />
+        </EditText>
+
+        <Button
+            android:id="@+id/bt_adjust_add"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="80dp"
+            android:background="@drawable/selector_button_red"
+            android:text="添加"
+            android:textColor="#ffffff"
+            android:textSize="30sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/text_set"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="添加项目："
+            android:textSize="@dimen/text_size" />
+
+        <EditText
+            android:id="@+id/et_project_name"
+            style="@style/et_params"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="30dp"
+            android:layout_weight="1"
+            android:background="@drawable/shape_border"
+            android:ems="10"
+            android:paddingLeft="10dp" >
+
+            <requestFocus android:layout_height="match_parent" />
+        </EditText>
+
+        <Button
+            android:id="@+id/bt_project_add"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="80dp"
+            android:background="@drawable/selector_button_red"
+            android:text="添加"
+            android:textColor="#ffffff"
+            android:textSize="30sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_projs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textColor="@color/text_w" />
+
+</LinearLayout>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/left_right"
+    android:background="@color/bg"
+    android:paddingRight="@dimen/left_right" >
+
+    <TextView
+        android:id="@+id/tv_title"
+        style="@style/text_set"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginLeft="1dp"
+        android:background="@drawable/shape_top_end_15"
+        android:gravity="center"
+        android:text="参考标准"
+        android:textSize="@dimen/text_size" />
+
+    <TextView
+        style="@style/text_set"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="请选择检测项目，输入或选择依据的标准，然后点“确定”" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/textView3"
+            style="@style/text_set"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="检测项目："
+            android:textSize="@dimen/text_size" />
+
+        <Spinner
+            android:id="@+id/sp_proj"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="30dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:background="@drawable/shape_border"
+            android:ems="10"
+            style="@style/et_params"/>
+
+    </LinearLayout>
+
+
+	<View android:layout_width="match_parent"
+	    android:layout_height="1dp"
+	    android:layout_marginTop="40dp"
+	    android:layout_marginBottom="40dp"
+	    android:background="#fff"/>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/text_set"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="适用标准："
+            android:textSize="@dimen/text_size" />
+
+
+
+        <EditText
+            android:id="@+id/et_gb"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="10dp"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/shape_border"
+            android:popupBackground="#f0000000"
+            android:spinnerMode="dropdown"
+            style="@style/et_params"
+            android:hint="GB"
+            android:tag="@string/proj" />
+        <ImageButton
+            android:id="@+id/ib_gb"
+            android:layout_width="100dp"
+            android:layout_height="55dp"
+            android:background="@drawable/drop_down"
+            android:popupBackground="#f0000000"
+            android:tag="@null"/>
+        <Button
+            android:id="@+id/bt_ok"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:background="@drawable/selector_button_red"
+            android:text="确定"
+            android:textColor="#ffffff"
+            android:textSize="30sp" />
+    </LinearLayout>
+
+</LinearLayout>

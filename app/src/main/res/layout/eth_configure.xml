@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" >
+<!-- 这个是对话框的布局 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="8dip" >
+
+        <!--include
+            android:id="@+id/title"
+            layout="@layout/title" /-->
+
+        <LinearLayout
+            android:id="@+id/table"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+        </LinearLayout>
+
+        <!-- Device list -->
+
+        <TextView
+            android:id="@+id/eth_dev_list_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dip"
+            android:layout_marginStart="16dip"
+            android:layout_marginTop="8dip"
+            android:gravity="start"
+            android:orientation="vertical"
+            android:text="@string/eth_dev_list"
+            android:textSize="25sp"/>
+
+        <!-- The entries will be set programmatically -->
+
+        <Spinner
+            android:id="@+id/eth_dev_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- Connection type -->
+
+        <TextView
+            android:id="@+id/eth_con_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dip"
+            android:layout_marginStart="16dip"
+            android:layout_marginTop="8dip"
+            android:gravity="start"
+            android:orientation="vertical"
+            android:text="@string/eth_con_type"
+            android:textSize="25sp" />
+
+        <RadioGroup
+            android:id="@+id/con_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <RadioButton
+                android:id="@+id/dhcp_radio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/eth_con_type_dhcp"
+                android:textAlignment="viewStart"
+                android:textSize="20sp" >
+            </RadioButton>
+
+            <RadioButton
+                android:id="@+id/manual_radio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/eth_con_type_manual"
+                android:textAlignment="viewStart"
+                android:textSize="20sp" >
+            </RadioButton>
+        </RadioGroup>
+
+        <!-- IP address -->
+
+        <LinearLayout
+            android:id="@+id/enterprise_wrapper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="0dip" >
+
+            <LinearLayout
+                android:id="@+id/ip_dns_setting"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/ipaddr_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dip"
+                    android:layout_marginStart="16dip"
+                    android:layout_marginTop="8dip"
+                    android:gravity="start"
+                    android:orientation="vertical"
+                    android:text="@string/eth_ipaddr"
+                    android:textSize="25sp" />
+
+                <com.zkzk.pra.ui.IPEditText
+                    android:id="@+id/ipaddr_edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:padding="10dp" />
+
+                <TextView
+                    android:id="@+id/dns_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dip"
+                    android:layout_marginStart="16dip"
+                    android:layout_marginTop="8dip"
+                    android:gravity="start"
+                    android:orientation="vertical"
+                    android:text="@string/eth_dns"
+                    android:textSize="25sp" />
+
+                <com.zkzk.pra.ui.IPEditText
+                    android:id="@+id/eth_dns_edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:padding="10dp" />
+            </LinearLayout>
+        </LinearLayout>
+        <!--include
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            layout="@layout/bottom_bar" /-->
+
+    </LinearLayout>
+
+
+</ScrollView>

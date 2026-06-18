@@ -1,0 +1,292 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+     android:background="@drawable/bg"
+    tools:context="com.zkzk.ecas.activity.DataActivity" >
+
+    <include
+        android:id="@+id/title"
+        layout="@layout/title" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="@dimen/left_right"
+        android:layout_marginRight="@dimen/left_right"
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical" >
+
+        <TextView
+            style="@style/text_set"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/detect_time" />
+
+        <TextView
+            android:id="@+id/tv_data_start_time"
+            style="@style/text_set"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/shape_border"
+            android:text="2017-01-01" />
+
+        <TextView
+            style="@style/text_set"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:text="@string/to" />
+
+        <TextView
+            android:id="@+id/tv_data_end_time"
+            style="@style/text_set"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:background="@drawable/shape_border"
+            android:text="2017-11-11" />
+
+        <TextView
+            style="@style/text_set"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="30dp"
+            android:text="@string/detect_proj_query" />
+
+        <TextView
+            android:id="@+id/tv_proj"
+             style="@style/text_set"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/shape_border"
+            android:popupBackground="#f0000000"
+            android:spinnerMode="dropdown"
+            android:tag="@string/proj" />
+    </LinearLayout>
+
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="@dimen/left_right"
+        android:layout_marginRight="@dimen/left_right"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical" >
+
+        <TextView
+            style="@style/text_set"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/detect_type_query" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="30dp"
+            android:background="@drawable/shape_border"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:orientation="horizontal" >
+
+            <EditText
+                android:id="@+id/et_type"
+                 style="@style/text_set"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="4"
+                android:background="@null"
+                android:ems="10"
+                android:singleLine="true" >
+            </EditText>
+
+            <ImageButton
+                android:id="@+id/ib_type"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/drop_down"
+                android:popupBackground="#f0000000"
+                android:spinnerMode="dropdown"
+                android:tag="@null" />
+        </LinearLayout>
+        <TextView 
+		    android:id="@+id/tv_total"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_marginLeft="10dp"
+		    android:text="total"/>
+        <Space android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+        <!-- 
+         <Button
+            android:id="@+id/bt_output"
+            style="@style/button_text"
+            android:layout_width="0dp"
+            android:layout_weight="0.45"
+            android:layout_height="match_parent"
+            android:text="@string/output" />
+
+        <Button
+            android:id="@+id/bt_update"
+            style="@style/button_text"
+            android:layout_width="0dp"
+            android:layout_weight="0.45"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/selector_button"
+            android:text="@string/update" />
+ 		-->
+ 		<Button
+            android:id="@+id/bt_upload"
+            style="@style/button_text"
+            android:layout_width="0dp"
+            android:layout_weight="0.45"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="10dp"
+            android:visibility="gone"
+            android:text="@string/update" />
+ 		
+        <Button
+            android:id="@+id/bt_query"
+            style="@style/button_text"
+            android:layout_width="0dp"
+            android:layout_weight="0.45"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/selector_button"
+            android:text="@string/query" />
+    </LinearLayout>
+
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/left_right"
+        android:layout_marginRight="@dimen/left_right"
+        android:layout_marginTop="10dp"
+        layout="@layout/data_list_head" />
+
+    <ListView
+        android:id="@+id/lv_data"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginLeft="@dimen/left_right"
+        android:layout_marginRight="@dimen/left_right"
+        android:background="@drawable/shape_border"
+        android:divider="@color/title_a"
+        android:dividerHeight="1dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:paddingLeft="@dimen/left_right"
+        android:paddingRight="@dimen/left_right"
+         android:layout_marginBottom="3dp"
+        android:layout_marginEnd="@dimen/work_dimen"
+        android:layout_marginStart="@dimen/work_dimen"
+        android:gravity="center" >
+
+        
+        <CheckBox
+            android:id="@+id/cb_select_all"
+            style="@style/text_set"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/check_current_page" />
+        
+        <CheckBox
+            android:id="@+id/cb_select_all_page"
+            style="@style/text_set"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="@string/check_all_page" />
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+        
+        <TextView
+            android:id="@+id/tv_pages"
+            style="@style/text_set"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="10dp"
+            android:text="共 10页" />
+
+        <ImageButton
+            android:id="@+id/ib_to_first"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="10dp"
+            android:background="@null"
+            android:scaleType="fitCenter"
+            android:src="@drawable/to_first" />
+
+        <ImageButton
+            android:id="@+id/ib_last"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="10dp"
+            android:background="@null"
+            android:scaleType="fitCenter"
+            android:src="@drawable/last" />
+
+        <TextView
+            android:id="@+id/tv_current_page"
+            style="@style/text_set"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="10dp"
+            android:text="1" />
+
+        <ImageButton
+            android:id="@+id/ib_next"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:background="@null"
+            android:scaleType="fitCenter"
+            android:src="@drawable/next" />
+
+        <ImageButton
+            android:id="@+id/ib_to_end"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:background="@null"
+            android:scaleType="fitCenter"
+            android:src="@drawable/to_end" />
+         <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/bt_print"
+            style="@style/button_text"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="10dp"
+            android:text="@string/print" />
+
+        
+        <Button
+            android:id="@+id/bt_output"
+            style="@style/button_text"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:text="@string/output" />
+    </LinearLayout>
+	   <include layout="@layout/bottom_bar" />
+</LinearLayout>

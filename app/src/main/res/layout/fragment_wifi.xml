@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    <TextView
+        style="@style/text_set"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginLeft="1dp"
+        android:background="@drawable/shape_top_end_15"
+        android:gravity="center"
+        android:text="@string/wifi_set"
+        android:textSize="@dimen/text_size" />
+ <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/wifi_set"
+        style="@style/text_set"
+        android:layout_margin="30dp"
+        />
+
+ <LinearLayout
+     android:layout_width="match_parent"
+     android:layout_height="100dp"
+     android:layout_marginLeft="30dp"
+     android:layout_marginRight="30dp"
+     android:background="@drawable/shape_border"
+     android:orientation="horizontal"
+     android:padding="20dp" 
+     >
+
+     <TextView
+         android:id="@+id/textView2"
+         style="@style/text_set"
+         android:layout_width="0dp"
+         android:layout_height="match_parent"
+         android:layout_weight="1"
+         android:gravity="left"
+         android:text="@string/wifi" />
+
+     <Switch
+         android:id="@+id/switch_wifi"
+         android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:switchTextAppearance="@style/switch_text"
+            android:checked="false"
+            android:switchMinWidth="200dp"
+            android:textSize="60sp"
+            android:thumbTextPadding="50dp"
+            android:text="@null"
+            android:thumb="@drawable/selector_thumb"
+            android:track="@drawable/selector_track" />
+
+ </LinearLayout>
+
+    <ListView 
+        android:id="@+id/lv_set_wifi"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="#c0c0c0"
+        android:dividerHeight="2dp"
+   		android:layout_margin="30dp"
+        android:background="@drawable/shape_border"
+        />
+</LinearLayout>

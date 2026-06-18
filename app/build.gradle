@@ -1,0 +1,125 @@
+plugins {
+    id 'com.android.application'
+//    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    namespace 'com.zkzk.pra'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.swzz.praio"
+//        applicationId "com.zkzk.pra"
+        minSdk 19
+        //noinspection ExpiredTargetSdkVersion
+        targetSdk 19
+        versionCode 1
+        versionName "2.0."+new Date().format("yyMM.dd.HHmm").substring(1)
+//        versionName "2.0."+new Date().format("yyMM.dd.HHmm").substring(1)+'sak'//对接食安康平台的加这个.sak
+//        versionName "2.0."+new Date().format("yyMM.dd.HHmm").substring(1)+'hb'//河北的专属版本
+//        versionName "2.0."+new Date().format("yyMM.dd.HHmm").substring(1)+'sd'//山东版本
+        ndk{                                            // add this
+            abiFilters "armeabi"//, "arm64-v8a"
+        }
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        multiDexEnabled true
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    buildFeatures{
+        buildConfig=true
+        viewBinding true
+    }
+
+    signingConfigs {
+        debug{
+            storeFile = file("C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\hebei\\mc.keystore")
+            storePassword = "android"
+            keyPassword = "android"
+        }
+        release  {
+            storeFile = file("C:\\Users\\Administrator\\AppData\\Local\\Android\\Sdk\\hebei\\mc.keystore")
+            storePassword = "android"
+            keyPassword = "android"
+        }
+    }
+    android.applicationVariants.all {
+        variant ->
+            variant.outputs.all {
+                //这里修改apk文件名
+                if(defaultConfig.versionName.toLowerCase().endsWith("sak")){
+                    outputFileName = "PRAIO2SAK-${variant.name}_v${variant.versionName}.apk"
+                }else if(defaultConfig.versionName.toLowerCase().endsWith("wh")) {
+                    outputFileName = "PRAIO2WH-${variant.name}_v${variant.versionName}.apk"
+                }else if(defaultConfig.versionName.toLowerCase().endsWith("ah")){
+                    outputFileName = "PRAIO2AH-${variant.name}_v${variant.versionName}.apk"
+                }else if(defaultConfig.versionName.toLowerCase().endsWith("hb")){
+                    outputFileName = "PRAIO2HB-${variant.name}_v${variant.versionName}.apk"
+                }else{
+                    outputFileName = "PRAIO2-${variant.name}_v${variant.versionName}.apk"
+                }
+            } 
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    testImplementation 'junit:junit:4.12'
+    compileOnly files('framework/mc_android4.4.jar')
+    implementation 'com.huawei.hms:scanplus:2.12.0.301' //华为统一扫码组件  sdk33以上才能用
+//    implementation 'com.android.support:multidex:1.0.3' //需
+
+
+//    implementation 'androidx.appcompat:appcompat:1.6.1'  //
+//    implementation 'com.google.android.material:material:1.8.0'
+//    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+//    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    implementation 'androidx.multidex:multidex:2.0.1'
+
+}
+
+
+//gradle.projectsEvaluated {
+//    tasks.withType(JavaCompile) {
+//        options.compilerArgs.add("-Xbootclasspath/p:$rootProject.rootDir/app/framework/mc_android4.4.jar")
+//    }
+//}
+//preBuild {
+//    doLast {
+//        //测试版本 Android Studio Giraffe | 2022.3.1 Patch 1
+//        //需要先在File >> Settings >> Build... >> Build Tools >> Gradle 中勾选generate *.iml,
+//        //否则项目中将没有My_Application.app.main.iml这个文件
+//        def imlFile = file("$rootProject.rootDir/.idea/modules/app/PRAIO.app.main.iml")
+//        try {
+//            def parsedXml = (new XmlParser()).parse(imlFile)
+//            def jdkNode = parsedXml.component[1].orderEntry.find { it.'@type' == 'jdk' }
+//            parsedXml.component[1].remove(jdkNode)
+////            def sdkString = "Android API 30 Platform"
+//            def sdkString = "Android API " + android.compileSdkVersion.substring("android-".length()) + " Platform"
+//            println("sdkstring: "+sdkString)
+//            new Node(parsedXml.component[1], 'orderEntry', ['type': 'jdk', 'jdkName': sdkString, 'jdkType': 'Android SDK'])
+//            groovy.xml.XmlUtil.serialize(parsedXml, new FileOutputStream(imlFile))
+//        } catch (FileNotFoundException e) {
+//            e.printStackTrace()
+//        }
+//    }
+//}

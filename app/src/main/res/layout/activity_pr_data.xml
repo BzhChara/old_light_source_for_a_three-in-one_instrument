@@ -1,0 +1,364 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    android:orientation="vertical"
+    tools:context="com.zkzk.ecas.activity.DataActivity" >
+
+    <include
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/title" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="@dimen/work_dimen"
+        android:layout_marginRight="@dimen/work_dimen"
+        android:layout_marginTop="8dp"
+        android:gravity="center_vertical" >
+
+        <TextView
+            style="@style/text_set"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/detect_time" />
+
+        <TextView
+            android:id="@+id/tv_data_start_time"
+            style="@style/text_set"
+            android:layout_width="180dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/shape_border_small"
+            android:text="2017-01-01" />
+
+        <TextView
+            style="@style/text_set"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:text="@string/to" />
+
+        <TextView
+            android:id="@+id/tv_data_end_time"
+            style="@style/text_set"
+            android:layout_width="180dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/shape_border_small"
+            android:text="2017-11-11" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <TextView
+            style="@style/text_set"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="30dp"
+            android:text="@string/detect_proj" />
+
+        <TextView
+            style="@style/text_set"
+            android:layout_width="180dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/shape_border_small"
+            android:popupBackground="#f0000000"
+            android:spinnerMode="dropdown"
+            android:text="农药残留"
+            android:tag="@string/proj" />
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <TextView
+            style="@style/text_set"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/specimen_name" />
+
+        <LinearLayout
+            android:layout_width="200dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="8dp"
+            android:background="@drawable/shape_border_small"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:orientation="horizontal" >
+
+            <requestFocus android:layout_height="match_parent" />
+
+            <EditText
+                android:id="@+id/et_type"
+                style="@style/text_set"
+                android:layout_width="0dp"
+                android:layout_weight="4"
+                
+                android:layout_height="match_parent"
+                android:background="@null"
+                android:ems="10"
+                android:singleLine="true" />
+            <ImageButton
+                android:id="@+id/ib_type"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/drop_down"
+                android:popupBackground="#f0000000"
+                android:spinnerMode="dropdown"
+                android:tag="@null" />
+        </LinearLayout>
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="@dimen/work_dimen"
+        android:layout_marginRight="@dimen/work_dimen"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            style="@style/text_set"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:text="@string/target_org" />
+
+        <LinearLayout
+            android:layout_width="200dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="8dp"
+            android:background="@drawable/shape_border_small"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:orientation="horizontal" >
+
+            <EditText
+                android:id="@+id/et_target_org"
+                style="@style/text_set"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:background="@null"
+                android:ems="10"
+                android:singleLine="true" />
+
+            <requestFocus android:layout_height="match_parent" />
+
+            <Spinner
+                android:id="@+id/spinner_target_org"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/drop_down"
+                android:popupBackground="#f0000000"
+                android:spinnerMode="dropdown"
+                android:tag="@null"
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <TextView
+            style="@style/text_set"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="30dp"
+            android:text="@string/detect_result" />
+
+        <Spinner
+            android:id="@+id/spinner_result"
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/shape_border_small"
+            android:popupBackground="#f0000000"
+            android:spinnerMode="dropdown" />
+		<TextView 
+		    android:id="@+id/tv_total"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_marginLeft="10dp"
+		    android:visibility="gone"
+		    android:text="total"/>
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+        
+        <TextView 
+            android:id="@+id/tv_show_qr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:text="@string/qr_code"/>
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="0.1" />
+        <Button
+            android:id="@+id/bt_input"
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/selector_button_red"
+            android:text="@string/input"
+            android:textColor="@color/bg_w"
+            android:visibility="gone"
+            android:textSize="26sp" />
+
+        <Button
+            android:id="@+id/bt_query"
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/selector_button_red"
+            android:text="@string/query"
+            android:textColor="@color/bg_w"
+            android:textSize="26sp" />
+    </LinearLayout>
+
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/work_dimen"
+        android:layout_marginRight="@dimen/work_dimen"
+        android:layout_marginTop="10dp"
+        layout="@layout/data_list_head" />
+
+    <ListView
+        android:id="@+id/lv_data"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginLeft="@dimen/work_dimen"
+        android:layout_marginRight="@dimen/work_dimen"
+        android:layout_weight="1"
+        android:background="@drawable/shape_border_cyan"
+        android:divider="@color/cyan"
+        android:dividerHeight="1dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="3dp"
+        android:layout_marginEnd="@dimen/work_dimen"
+        android:layout_marginStart="@dimen/work_dimen"
+        android:layout_marginTop="3dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingBottom="2dp" >
+
+        <CheckBox
+            android:id="@+id/cb_select_all"
+            style="@style/text_set"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="@string/select_all" />
+        
+        <CheckBox
+            android:id="@+id/cb_select_all_page"
+            style="@style/text_set"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="@string/select_all_page" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/tv_pages"
+            style="@style/text_set"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="10dp"
+            android:text="@string/total_pages" />
+
+        <ImageButton
+            android:id="@+id/ib_to_first"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="10dp"
+            android:background="@null"
+            android:scaleType="fitCenter"
+            android:src="@drawable/to_first" />
+
+        <ImageButton
+            android:id="@+id/ib_last"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="10dp"
+            android:background="@null"
+            android:scaleType="fitCenter"
+            android:src="@drawable/last" />
+
+        <TextView
+            android:id="@+id/tv_current_page"
+            style="@style/text_set"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="10dp"
+            android:text="0" />
+
+        <ImageButton
+            android:id="@+id/ib_next"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:background="@null"
+            android:scaleType="fitCenter"
+            android:src="@drawable/next" />
+
+        <ImageButton
+            android:id="@+id/ib_to_end"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:background="@null"
+            android:scaleType="fitCenter"
+            android:src="@drawable/to_end" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/bt_print"
+            style="@style/button_text"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="10dp"
+            android:text="@string/print" />
+
+        <Button
+            android:id="@+id/bt_upload"
+            style="@style/button_text"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="10dp"
+            android:visibility="gone"
+            android:text="@string/update" />
+        <Button
+            android:id="@+id/bt_output"
+            style="@style/button_text"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:text="@string/output" />
+    </LinearLayout>
+  <include layout="@layout/bottom_bar" />
+</LinearLayout>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="550dp"
+    android:layout_height="300dp"
+    android:background="#bbffffef"
+    android:paddingBottom="10dp"
+    android:id="@+id/root">
+
+    <TextView
+        android:id="@+id/tv_prodialog_title"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#02062C"
+        android:text="@string/notice" 
+        android:paddingLeft="20dp"
+        android:gravity="center"
+        android:textSize="28sp"
+        android:textColor="#ffffff"
+        android:paddingRight="20dp"
+        />
+
+    
+    <LinearLayout 
+        android:id="@+id/ll_timer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_below="@+id/tv_prodialog_title"
+        android:paddingTop="10dp"
+        android:layout_marginBottom="10dp">
+        <com.zkzk.pra.ui.ProView
+            android:id="@+id/proV"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:textSize="26sp"
+            android:text="@string/remaining_time"/>
+        <TextView 
+            android:id="@+id/tv_timer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:textSize="46sp"
+            android:textColor="@color/c_cyan"
+            android:text="0：2：33"/>
+    </LinearLayout>
+	
+    <TextView 
+        android:id="@+id/tv_total_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_below="@+id/ll_timer"
+        android:layout_marginTop="10dp"
+        android:textSize="23sp"
+        android:textColor="#220000"
+        android:text="@string/detectint_please_wait"/>
+        
+
+    
+    <Button android:id="@+id/bt_cancel"
+        android:layout_width="200sp"
+        android:layout_height="wrap_content"
+        android:text="取   消"
+        android:padding="10dp"
+        android:background="@drawable/selector_button"
+        android:layout_centerHorizontal="true"
+        android:textSize="28dp"
+        android:textColor="#ffffff"
+        android:layout_marginBottom="10dp"
+        android:layout_alignParentBottom="true"/>
+
+</RelativeLayout>

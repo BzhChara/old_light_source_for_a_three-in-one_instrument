@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="proj">
+        <item>农药残留(有机磷/氨基甲酸酯)</item>
+        <!-- 
+        <item>硼砂</item>
+        <item>农药残留</item>
+        <item>苏丹红</item>
+        <item >罗丹明</item>
+         -->
+    </string-array>
+    
+    <string-array name="type">
+        <item>青菜</item>
+        <item>绿豆</item>
+        <item>水</item>
+        <item>土壤</item>
+        <item>大米</item>
+    </string-array>
+    
+    
+
+</resources>

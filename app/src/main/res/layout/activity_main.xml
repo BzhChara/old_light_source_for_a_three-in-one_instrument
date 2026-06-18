@@ -1,0 +1,152 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    android:orientation="vertical"
+
+    tools:context="com.whswzz.prfluroanalyzer.MainActivity" >
+
+    <include
+        android:id="@+id/title"
+        layout="@layout/title" />
+
+    <LinearLayout
+        android:id="@+id/bts"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:layout_marginTop="50dp"
+        android:orientation="horizontal" >
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/bt_main_detect"
+            style="@style/bt_main"
+            android:background="#EDA409"
+            android:drawableTop="@drawable/bt_detect"
+            android:gravity="center"
+            android:paddingTop="30dp"
+            android:text="分光检测" />
+
+
+        <Button
+            android:id="@+id/bt_main_proj"
+            style="@style/bt_main"
+            android:background="@null"
+            android:drawableTop="@drawable/bt_proj"
+            android:gravity="center"
+            android:text="@string/proj_manage"
+            android:visibility="gone" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/bt_main_fluoro"
+            style="@style/bt_main"
+            android:background="#E34345"
+            android:drawableTop="@drawable/bt_collaurum"
+            android:gravity="center"
+            android:text="胶体金检测" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/bt_main_timer"
+            style="@style/bt_main"
+            android:background="#8AE2F3"
+            android:drawableTop="@drawable/bt_clock"
+            android:gravity="center"
+            android:text="酶片检测" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/bts2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_below="@+id/bts"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginBottom="50dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/bt_main_param"
+            style="@style/bt_main"
+            android:background="#5B59FB"
+            android:drawableTop="@drawable/bt_proj"
+            android:gravity="center"
+            android:text="参数设置" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/bt_main_data"
+            style="@style/bt_main"
+            android:background="#15D134"
+            android:drawableTop="@drawable/bt_query"
+            android:gravity="center"
+            android:text="记录查询" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/bt_main_setup"
+            style="@style/bt_main"
+            android:background="#CC58E1"
+            android:drawableTop="@drawable/bt_setup"
+            android:gravity="center"
+            android:text="@string/system_setup" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/bt_unmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:text="移除"
+        android:visibility="gone" />
+
+    <include
+        android:id="@+id/bottom"
+        layout="@layout/bottom_bar"
+        android:visibility="gone" />
+
+</LinearLayout>

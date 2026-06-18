@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="title">#151F6D</color>
+    <color name="title_a">#aa151F6D</color>	<!-- 比主题色加亮 -->
+    <color name="title_b">#141646</color>	<!-- 比主题色更深色 -->
+    <color name="bt_start">#15377a</color>
+    <color name="bt_end">#004163</color>
+    <color name="gray">#666666</color>
+    <color name="bg_gray">#cccccc</color>
+    <color name="bg_w">#FBECEC</color>
+    <color name="text_black">#222222</color>
+    <color name="green">#00ff00</color>
+    <color name="text_w">#ffffff</color>
+    <color name="cyan">#27A8AE</color>
+    <color name="c_cyan">#D85751</color>
+    
+    <color name="bg">#13305A</color>
+    
+    <color name="mask">#99102347</color>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="picker_text_color">#555</color>
+    <color name="picker_select_text_color">#0aa666</color>
+    <color name="station_average">#0fbc72</color>
+    <color name="picker_title_text_color">#000000</color>
+    <color name="picker_border_color">#e5e5e5</color>
+
+    <color name="transparent_background">#00000000</color>
+</resources>

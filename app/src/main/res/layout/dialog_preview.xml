@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="1000dp"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    android:orientation="horizontal" >
+    
+    <top.jemen.ui.view.CameraPreview2
+        android:id="@+id/cv"
+        android:layout_width="640dp"
+        android:layout_height="480dp"/>
+    
+    <TextView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/cv"
+        style="@style/text_set"
+        android:text="@string/adjust_the_focus"/>
+    <TextView 
+        android:id="@+id/tv_light"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/cv"
+        android:layout_centerVertical="true"
+        style="@style/text_set"
+        android:text="调整光照"/>
+    <SeekBar 
+        android:id="@+id/sb_light"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/cv"
+        android:layout_below="@+id/tv_light"/>
+
+</RelativeLayout>

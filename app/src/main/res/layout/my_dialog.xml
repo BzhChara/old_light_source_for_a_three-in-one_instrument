@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="600dp"
+    android:layout_height="300dp"
+    android:background="#ffffff"
+    android:padding="20dp" >
+
+    <TextView
+        android:id="@+id/tv_dialog_title"
+        android:textSize="30sp"
+        android:textColor="@color/title"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="left"
+        android:textStyle="bold"
+        android:text="标题" />
+	<TextView 
+	    android:layout_width="match_parent"
+	    android:layout_height="1dp"
+	    android:layout_below="@id/tv_dialog_title"
+	    android:background="@color/title"/>
+    <TextView
+        android:id="@+id/tv_dialog_msg"
+        style="@style/text_set"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_dialog_title"
+        android:layout_above="@+id/bt_dialog_ensure"
+        android:layout_centerInParent="true"
+        android:text="@string/input_psw"
+        android:textSize="26sp"
+        android:textColor="#333333"
+        android:gravity="center"
+        />
+
+    <Button
+        android:id="@+id/bt_dialog_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/bt_dialog_ensure"
+        android:layout_alignBottom="@+id/bt_dialog_ensure"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="80dp"
+        android:background="@null"
+        android:text="@string/cancel"
+        android:textColor="@color/title"
+        android:textSize="@dimen/text_size" />
+
+    <Button
+        android:id="@+id/bt_dialog_ensure"
+        style="@style/text_set"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="28dp"
+        android:layout_marginRight="61dp"
+        android:background="@null"
+        android:text="@string/ok"
+        android:textColor="@color/title"
+        android:textSize="@dimen/text_size" />
+
+</RelativeLayout>

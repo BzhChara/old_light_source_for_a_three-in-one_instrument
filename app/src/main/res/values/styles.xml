@@ -1,0 +1,213 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+
+
+
+
+    -->
+    <style name="ContextTheme" parent="android:Theme.Holo.Light">
+
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+
+
+
+
+        -->
+        <item name="android:actionMenuTextAppearance">@style/MenuTextStyle</item>
+    </style>
+
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="android:Theme.Holo.Light.NoActionBar">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+
+    <style name="MenuTextStyle">
+        <item name="android:textColor">@android:color/holo_green_dark</item>
+        <item name="android:textSize">30sp</item>
+    </style>
+
+    <style name="StyleProgressBarMini" parent="@android:style/Widget.ProgressBar.Horizontal">
+        <item name="android:maxHeight">50dip</item>
+        <item name="android:minHeight">20dip</item>
+        <item name="android:indeterminateOnly">false</item>
+        <item name="android:indeterminateDrawable">@android:drawable/progress_indeterminate_horizontal</item>
+        <item name="android:progressDrawable">@drawable/shape_progressbar_mini</item>
+    </style>
+
+    <style name="SysteMainButton">
+        <item name="android:textSize">30sp</item>
+        <item name="android:minWidth">200dp</item>
+        <item name="android:minHeight">80dp</item>
+    </style>
+
+    <style name="rb_setup">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:button">@null</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">30sp</item>
+        <item name="android:background">@null</item>
+        <item name="android:textColor">@color/text_w</item>
+    </style>
+
+    <style name="text_set">
+        <item name="android:textColor">@color/text_w</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="text_sub">
+        <item name="android:textColor">@color/text_w</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="text_pr">
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">#27A8AD</item>
+    </style>
+
+    <style name="text_result">
+        <item name="android:textColor">@color/text_w</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:gravity">left</item>
+        <item name="android:padding">12dp</item>
+    </style>
+
+    <style name="dialog" parent="android:Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@color/bg_w</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!-- 是否背景模糊 -->
+        <item name="android:backgroundDimEnabled">true</item>
+        <!-- 设置背景模糊的不透明度 -->
+        <item name="android:backgroundDimAmount">0.3</item>
+    </style>
+
+    <style name="list_title_text">
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:textSize">23sp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="list_text">
+        <item name="android:textColor">@color/text_w</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="button_text">
+        <item name="android:textColor">@color/bg_w</item>
+        <item name="android:textSize">26sp</item>
+        <item name="android:padding">5dp</item>
+        <item name="android:background">@drawable/selector_button</item>
+    </style>
+
+    <style name="OverlayDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+
+    <style name="MyCommonDialog" parent="android:Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <!-- 背景颜色及透明程度 -->
+        <!-- item name="android:windowBackground">@color/bg_w</item -->
+        <!-- 是否半透明 -->
+        <item name="android:windowIsTranslucent">true</item>
+        <!-- 是否没有标题 -->
+        <item name="android:windowNoTitle">true</item>
+        <!-- 是否浮现在activity之上 -->
+        <item name="android:windowIsFloating">true</item>
+        <!-- 是否背景模糊 -->
+        <item name="android:backgroundDimEnabled">true</item>
+        <!-- 设置背景模糊的透明度 -->
+        <item name="android:backgroundDimAmount">0.5</item>
+        <item name="android:minHeight">300dp</item>
+        <item name="android:minWidth">600dp</item>
+    </style>
+
+    <style name="switch_text" parent="@android:style/TextAppearance.Large">
+        <item name="android:textSize">25sp</item>
+        <item name="android:textColor">@color/text_black</item>
+    </style>
+
+    <style name="bt_main">
+        <item name="android:textSize">30sp</item>
+        <item name="android:textColor">#fff</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginLeft">20dp</item>
+        <item name="android:layout_marginRight">20dp</item>
+        <item name="android:background">@null</item>
+        <item name="android:layout_width">180dp</item>
+        <item name="android:layout_height">200dp</item>
+        <item name="android:paddingTop">20dp</item>
+    </style>
+
+    <style name="bt_detect">
+        <item name="android:textSize">30sp</item>
+        <item name="android:textColor">#fff</item>
+        <item name="android:layout_margin">20dp</item>
+        <item name="android:paddingStart">30dp</item>
+        <item name="android:paddingEnd">30dp</item>
+    </style>
+
+    <style name="prviews">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+    <style name="enzymeviews">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_margin">1dp</item>
+    </style>
+
+    <!-- 自定义seekbarstyle -->
+    <style name="CustomSeekbarStyle">
+        <item name="android:maxHeight">7dp</item>
+        <item name="android:indeterminateOnly">false</item>
+        <item name="android:indeterminateDrawable">@color/green</item>
+        <item name="android:progressDrawable">@drawable/seekbar_progress_drawable</item>
+        <item name="android:minHeight">3dp</item>
+        <item name="android:thumb">@drawable/sb_thumb</item>
+    </style>
+
+    <style name="Theme.jemen" parent="@android:style/Theme.Holo.Light.NoActionBar">
+        <item name="android:windowBackground">@null</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <style name="AnimBottom" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/slide_in_from_bottom</item>
+        <item name="android:windowExitAnimation">@anim/slide_out_to_bottom</item>
+    </style>
+    
+	<style name="et_params">
+	    <item name="android:textColor">@color/text_w</item>
+	    <item name="android:textSize">@dimen/text_size</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:imeOptions">actionNext</item>
+	</style>    
+	
+	
+	<style name="defaultDialogStyle" parent = "@android:style/Theme.Dialog">
+  		<item name="android:windowNoTitle">true</item>
+	</style>
+
+</resources>

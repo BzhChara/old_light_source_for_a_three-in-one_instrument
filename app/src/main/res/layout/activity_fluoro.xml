@@ -1,0 +1,134 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    tools:context="com.whswzz.prfluroanalyzer.fluoro.FluoroActivity" >
+
+    <include
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/title" />
+
+    <ImageView
+        android:id="@+id/iv_fluoro"
+        android:layout_width="400dp"
+        android:layout_height="300dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/title"
+        android:layout_marginRight="@dimen/left_right"
+        android:scaleType="fitXY" />
+
+    <Button
+        android:id="@+id/bt_start"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_alignRight="@+id/iv_fluoro"
+        android:layout_marginRight="67dp"
+        android:layout_above="@+id/bottom"
+        android:layout_marginBottom="60dp"
+        android:background="@drawable/selector_button_red"
+        android:text="@string/start_detect"
+        android:textColor="#ffffff"
+        android:textSize="30sp" />
+    
+
+    <Spinner
+        android:id="@+id/sp_channels"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_alignBottom="@+id/bt_start"
+        android:layout_toLeftOf="@+id/bt_start"
+        android:background="@drawable/shape_border"
+        android:popupBackground="#f0000000"
+        android:spinnerMode="dropdown" />
+    
+    <Button 
+        android:id="@+id/bt_all_msg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/text_set"
+        android:layout_alignStart="@+id/sp_channels"
+        android:layout_above="@+id/sp_channels"
+        android:layout_marginBottom="20dp"
+        android:background="@null"
+        android:text="统一设置样品信息"/>
+    
+     <CheckBox
+        android:id="@+id/cb_all"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/iv_fluoro"
+        android:layout_alignStart="@+id/sp_channels"
+        android:layout_marginTop="50dp"
+        style="@style/text_set"
+        android:button="@drawable/selector_checkbox"
+        android:text="全选"/>
+
+    <Button
+        android:id="@+id/bt_upload"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_alignBaseline="@+id/cb_all"
+        android:layout_toEndOf="@+id/cb_all"
+        android:layout_marginStart="15dp"
+        android:background="@drawable/selector_button_red"
+        android:text="@string/upload"
+        android:textColor="#ffffff"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/bt_print"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_alignBaseline="@+id/cb_all"
+        android:layout_alignStart="@+id/bt_start"
+
+        android:background="@drawable/selector_button_red"
+        android:text="@string/print"
+        android:textColor="#ffffff"
+        android:textSize="30sp" />
+
+
+
+    <LinearLayout
+        android:id="@+id/ll_collaurum"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/title"
+        android:layout_above="@+id/bottom"
+        android:layout_marginBottom="@dimen/left_right"
+        android:layout_marginLeft="@dimen/left_right"
+        android:layout_toLeftOf="@+id/iv_fluoro"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/ll_collaurum_up"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal" >
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_collaurum_down"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal" >
+        </LinearLayout>
+    </LinearLayout>
+    <include 
+        android:id="@+id/bottom"
+        layout="@layout/bottom_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        
+        />
+
+</RelativeLayout>

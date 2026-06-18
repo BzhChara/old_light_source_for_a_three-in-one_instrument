@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:paddingBottom="2dp"
+    android:paddingTop="3dp" >
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center" >
+
+        <CheckBox
+            android:id="@+id/cb_is_common"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:padding="8dp"
+            android:button="@drawable/selector_checkbox"
+            android:checked="true"
+            android:gravity="center" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_item_proj"
+        style="@style/list_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="@string/detect_proj" />
+    <Spinner
+        android:id="@+id/sp_item_type"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:paddingLeft="0dp"
+        android:dropDownVerticalOffset="-5dp"
+        android:dropDownWidth="150dp"
+        android:popupBackground="@color/bg_gray"
+        android:spinnerMode="dropdown"
+        android:gravity="center"
+        android:visibility="gone"
+        android:tag="@string/specimen_type" />
+    <TextView
+        android:id="@+id/tv_item_method"
+        style="@style/list_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="@string/detect_method" />
+    
+
+    <TextView
+        android:id="@+id/tv_contrast"
+        style="@style/list_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="@string/contrast_set" />
+    
+    <TextView
+        android:id="@+id/tv_detect_line_refer"
+        style="@style/list_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="@string/detect_line_refer" />
+
+    <TextView
+        android:id="@+id/tv_can_use"
+        style="@style/list_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="@string/can_use" />
+   
+</LinearLayout>

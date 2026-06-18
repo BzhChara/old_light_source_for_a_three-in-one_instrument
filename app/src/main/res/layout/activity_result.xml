@@ -1,0 +1,198 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg" >
+
+    <include
+        android:id="@+id/title"
+        layout="@layout/title" />
+
+    <TextView
+        android:id="@+id/center"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_centerInParent="true" />
+
+    <LinearLayout
+        android:id="@+id/ll_left"
+        android:layout_width="440dp"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/ll_result"
+        android:layout_below="@+id/title"
+        android:layout_marginTop="10dp"
+        android:layout_toLeftOf="@+id/center"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/tv_result_work_org"
+            style="@style/text_result"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="@string/detect_org" />
+
+        <TextView
+            android:id="@+id/tv_result_operator"
+            style="@style/text_result"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="@string/operator" />
+
+        <TextView
+            android:id="@+id/tv_result_name"
+            style="@style/text_result"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="@string/specimen_name" />
+
+        <TextView
+            android:id="@+id/tv_result_proj"
+            style="@style/text_result"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="@string/detect_proj" />
+        <TextView
+            android:id="@+id/tv_result_addr"
+            style="@style/text_result"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="样品产地" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="460dp"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/ll_result"
+        android:layout_below="@+id/title"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@+id/center"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/tv_result_sn"
+            style="@style/text_result"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="@string/specimen_sn" />
+
+        <TextView
+            android:id="@+id/tv_result_customer"
+            style="@style/text_result"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="@string/customer_org" />
+
+        <TextView
+            android:id="@+id/tv_result_time"
+            style="@style/text_result"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="@string/detect_time" />
+
+        <TextView
+            android:id="@+id/tv_result_limit"
+            style="@style/text_result"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="@string/detect_limit" />
+        <TextView
+            android:id="@+id/tv_result_info"
+            style="@style/text_result"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/bt_result_delete"
+        android:layout_alignLeft="@+id/ll_left"
+        android:layout_marginBottom="20dp"
+        android:gravity="center_vertical"
+        android:minHeight="100dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/tv_result_result"
+            style="@style/text_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="@string/detect_result" />
+
+        <ImageView
+            android:id="@+id/iv_code"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginLeft="30dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_launcher" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/bt_result_delete"
+        style="@style/button_text"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_above="@+id/bottom"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginRight="183dp"
+        android:visibility="invisible"
+        android:text="@string/delete" />
+
+    <Button
+        android:id="@+id/bt_result_print"
+        style="@style/button_text"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_alignBaseline="@+id/bt_result_delete"
+        android:layout_alignBottom="@+id/bt_result_delete"
+        android:layout_marginRight="65dp"
+        android:layout_toLeftOf="@+id/bt_result_delete"
+        android:text="@string/print" />
+
+    <Button
+        android:id="@+id/bt_result_upload"
+        style="@style/button_text"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_alignBaseline="@+id/bt_result_delete"
+        android:layout_alignBottom="@+id/bt_result_delete"
+        android:layout_marginRight="65dp"
+        android:layout_toLeftOf="@+id/bt_result_print"
+        android:text="@string/upload" />
+
+    <Button
+        android:id="@+id/bt_result_original"
+        style="@style/button_text"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_alignBaseline="@+id/bt_result_delete"
+        android:layout_alignBottom="@+id/bt_result_delete"
+        android:layout_marginRight="65dp"
+        android:layout_toLeftOf="@+id/bt_result_upload"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:visibility="gone"
+        android:text="@string/original" />
+
+    <include
+        android:id="@+id/bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        layout="@layout/bottom_bar" />
+
+</RelativeLayout>

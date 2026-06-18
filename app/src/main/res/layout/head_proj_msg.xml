@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#27A8AE"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:paddingBottom="2dp"
+    android:paddingTop="3dp" >
+
+    <TextView
+        android:id="@+id/tv_item_id"
+        style="@style/list_title_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="@string/COMMON_PROJ" />
+
+    <TextView
+        android:id="@+id/tv_item_sn"
+        style="@style/list_title_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="@string/detect_proj" />
+
+    <TextView
+        android:id="@+id/tv_time"
+        style="@style/list_title_text"
+        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:gravity="center"
+        android:visibility="gone"
+        android:text="@string/specimen_type" />
+
+    <TextView
+        android:id="@+id/tv_name"
+        style="@style/list_title_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="@string/detect_method" />
+    
+    <TextView
+        android:id="@+id/tv_detect_contrast"
+        style="@style/list_title_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="@string/contrast_set" />
+
+    <TextView
+        android:id="@+id/tv_detect_line_refer"
+        style="@style/list_title_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="@string/negative_refer" />
+
+    <TextView
+        android:id="@+id/tv_proj"
+        style="@style/list_title_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="@string/can_use" />
+
+</LinearLayout>

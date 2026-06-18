@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+	<include
+            android:id="@+id/title"
+            layout="@layout/title" />
+    
+    
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="300dp"
+        android:orientation="horizontal"
+        android:layout_centerInParent="true"
+        android:layout_centerVertical="true">
+
+            <Button
+                android:id="@+id/btnCheck"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:clickable="true"
+                android:layout_margin="10dp"
+                android:background="@drawable/btncheck_background" />
+
+            <Button
+                android:id="@+id/btnAdvanced"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:background="@drawable/btnadvanced_background"
+                android:clickable="true"
+                android:layout_margin="10dp"
+                android:focusable="true" />
+
+            <Button
+                android:id="@+id/btnConfig"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:background="@drawable/btnconfig_background"
+                android:clickable="true"
+                android:layout_margin="10dp"
+                android:focusable="true" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:orientation="vertical"
+        android:layout_alignParentLeft="true"
+		android:layout_below="@id/title">
+		<!-- 
+        <ImageView
+            android:id="@+id/ic_log"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_log" />
+		 -->
+
+        <TextView
+            android:id="@+id/tvConfig"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="false"
+            android:layout_gravity="right|top"
+            android:scrollbars="vertical"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+    
+    
+
+</RelativeLayout>
+
