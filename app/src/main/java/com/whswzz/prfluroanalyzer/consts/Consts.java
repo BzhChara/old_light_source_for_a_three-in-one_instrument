@@ -134,6 +134,7 @@ public class Consts {
 	public static final SimpleDateFormat MDKM = new SimpleDateFormat("MM-dd kk:mm");
 	public static final String SPECIES_FN = "239874798";
 	public static final String LIMITS_FN = "7948615QW2ER";
+	public static final String LIMIT_UNITS_FN = "7948615QW2ER_UNITS";
 	public static final String TC_LIMITS_FN = "32R4154";
 	public static final String PROJS_FN = "WEQR0I9J45";
 	public static final String BATCHMAP_FN = "BATCHMAP_FN";

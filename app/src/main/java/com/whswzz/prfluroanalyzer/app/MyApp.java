@@ -192,6 +192,13 @@ public class  MyApp extends JemenApp {
 				limits=(Map<String, Double>) obj;
 			}
 		});
+		Initer.initLimitUnits(new ACallback() {
+
+			@Override
+			public void onSuccess(Object obj) {
+				limitUnits=(Map<String, String>) obj;
+			}
+		});
 		Initer.initTCLimts(new ACallback() {
 
 			@Override
@@ -870,6 +877,7 @@ public class  MyApp extends JemenApp {
 	private List<Species> lsSpecies; //样品信息保存。
 	private List<Species> lsProjs; //样品信息保存。
 	private  Map<String, Double> limits; //这个主要是存储是否超标的
+	private Map<String,String> limitUnits; //参考限值显示单位
 	private Map<String,String> tcLimits; //T/C限制，要求兼容
 	
 	public List<Source> getSources(){
@@ -889,6 +897,12 @@ public class  MyApp extends JemenApp {
 	}
 	public Map<String, Double> getLimits(){
 		return limits;
+	}
+	public Map<String, String> getLimitUnits(){
+		if(null==limitUnits) {
+			limitUnits=new HashMap<>();
+		}
+		return limitUnits;
 	}
 	public Map<String, String> getTCLimits(){
 		return tcLimits;
@@ -1030,6 +1044,24 @@ public class  MyApp extends JemenApp {
 			}
 		});
 		
+	}
+	public void saveLimitUnits(final  Map<String, String> map, final ICallback callback) {
+		Initer.saveLimitUnits(map, new ICallback() {
+			@Override
+			public void onSuccess(Object obj) {
+				limitUnits=map;
+				if(null!=callback)
+					callback.onSuccess(obj);
+			}
+
+			@Override
+			public void onFailed(Object obj) {
+				if(null!=callback) {
+					callback.onFailed(obj);
+				}
+			}
+		});
+
 	}
 	public void saveTCLimits(final  Map<String, String> map, final ICallback callback) {
 		Initer.saveTCLimits(map, new ICallback() {

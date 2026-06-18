@@ -420,6 +420,42 @@ public class Initer {
 
 	}
 
+	public static void initLimitUnits(final ICallback callback) {
+		AsyncProcessor.executeTask(new Runnable() {
+			@Override
+			public void run() {
+				Map<String, String> map = null;
+				ObjectInputStream ois = null;
+				FileInputStream is = null;
+				try {
+					is = MyApp.getApp().openFileInput(Consts.LIMIT_UNITS_FN);
+					ois = new ObjectInputStream(is);
+					map = (Map<String, String>) ois.readObject();
+					is.close();
+				} catch (Exception e) {
+					ExceptionHandler.handleException(e);
+				} finally {
+					try {
+						if (null != ois)
+							ois.close();
+						if (null != is) {
+							is.close();
+						}
+					} catch (IOException e) {
+						ExceptionHandler.handleException(e);
+					}
+					if (null == map) {
+						map = new HashMap<>();
+					}
+					callback.onSuccess(map);
+				}
+
+			}
+
+		});
+
+	}
+
 	protected static void parseLimits(Map<String, Double> map) throws FileNotFoundException, IOException {
 		String fileName="limits.xls";
 		
@@ -723,6 +759,45 @@ public class Initer {
 				String result;
 				try {
 					oo = new ObjectOutputStream(MyApp.getApp().openFileOutput(Consts.TC_LIMITS_FN, Context.MODE_PRIVATE));
+					oo.writeObject(map);
+					oo.flush();
+					result = Consts.SUCCESS;
+				} catch (IOException e) {
+					e.printStackTrace();
+					result = ("保存出错");
+				} finally {
+					if (null != oo) {
+						try {
+							oo.close();
+						} catch (IOException e) {
+							e.printStackTrace();
+						}
+					}
+				}
+				return result;
+			}
+
+			protected void onPostExecute(String result) {
+				if (null == callback) {
+					return;
+				}
+				if (Consts.SUCCESS.equals(result)) {
+					callback.onSuccess(result);
+				} else {
+					callback.onFailed(result);
+				}
+			};
+		}.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, map);
+	}
+
+	public static void saveLimitUnits(final Map<String, String> map, final ICallback callback) {
+		new AsyncTask<Map<String, String>, Void, String>() {
+			@Override
+			protected String doInBackground(Map<String, String>... params) {
+				ObjectOutputStream oo = null;
+				String result;
+				try {
+					oo = new ObjectOutputStream(MyApp.getApp().openFileOutput(Consts.LIMIT_UNITS_FN, Context.MODE_PRIVATE));
 					oo.writeObject(map);
 					oo.flush();
 					result = Consts.SUCCESS;

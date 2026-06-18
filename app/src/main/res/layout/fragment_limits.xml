@@ -107,15 +107,21 @@
             android:layout_width="0dp"
             android:layout_height="70dp"
             android:layout_marginLeft="10dp"
-            android:layout_marginRight="30dp"
+            android:layout_marginRight="10dp"
             android:gravity="center"
             android:layout_weight="1"
             android:background="@drawable/shape_border"
-            android:popupBackground="#f0000000"
-            android:spinnerMode="dropdown"
             style="@style/et_params"
-            android:hint="mg/kg"
             android:tag="@string/proj" />
+
+        <Spinner
+            android:id="@+id/sp_limits_unit"
+            android:layout_width="220dp"
+            android:layout_height="70dp"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/shape_border"
+            android:gravity="center"
+            android:spinnerMode="dropdown" />
 
         <Button
             android:id="@+id/bt_limits"
