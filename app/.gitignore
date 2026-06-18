@@ -1,4 +1,5 @@
 /build
 /debug/
 /release/
-/framework/
+/framework/*
+!/framework/mc_android4.4.jar
