@@ -21,6 +21,7 @@ import com.whswzz.prfluroanalyzer.fluoro.FluoroActivity;
 import com.whswzz.prfluroanalyzer.fluoro.data.FluDataActivity;
 import com.whswzz.prfluroanalyzer.fluoro.entity.FluData;
 import com.whswzz.prfluroanalyzer.param.Params;
+import com.whswzz.prfluroanalyzer.utils.LimitUnitUtil;
 import com.whswzz.prfluroanalyzer.utils.PrinterJPW;
 import com.zkzk.pra.R;
 import com.zkzk.pra.activity.DetectActivity;
@@ -217,8 +218,9 @@ public class CollaurumSpecimenDialog extends BaseDialog implements android.view.
 				tvReferenceBasis.setText("参考标准："+ PrinterJPW.getGB(data.getProj()));
 
 				String key=data.getProj()+"-"+data.getSpecimen();
-				if(limits.containsKey(key)){
-					tvLimit.setText(getString(R.string.limit_range) + COLON + String.format("%.3f",limits.get(key)));
+				Double limitValue = limits.get(key);
+				if(null!=limitValue){
+					tvLimit.setText(getString(R.string.limit_range) + COLON + LimitUnitUtil.formatLimit(limitValue, MyApp.getApp().getLimitUnits().get(key)));
 				}
 
 			}
@@ -352,7 +354,7 @@ public class CollaurumSpecimenDialog extends BaseDialog implements android.view.
 							LogUtil.d(key);
 							Double v=limits.get(key);
 							if(null!=v) {
-								tvLimit.setText("参考限值："+String.format("%.3f", v)+" mg/kg");
+								tvLimit.setText("参考限值："+ LimitUnitUtil.formatLimit(v, MyApp.getApp().getLimitUnits().get(key)));
 							}else {
 								tvLimit.setText("参考限值：");
 							}
@@ -401,7 +403,7 @@ public class CollaurumSpecimenDialog extends BaseDialog implements android.view.
 							LogUtil.d(key);
 							Double v=limits.get(key);
 							if(null!=v) {
-								tvLimit.setText("参考限值："+String.format("%.3f", v)+" mg/kg");
+								tvLimit.setText("参考限值："+ LimitUnitUtil.formatLimit(v, MyApp.getApp().getLimitUnits().get(key)));
 								CollaurumSpecimenDialog.this.data.setLimit((float)(double)v);
 							}else {
 								tvLimit.setText("参考限值：");

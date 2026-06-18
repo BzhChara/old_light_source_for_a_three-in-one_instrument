@@ -22,6 +22,7 @@ import com.whswzz.prfluroanalyzer.fluoro.entity.FluData;
 import com.whswzz.prfluroanalyzer.param.Params;
 import com.whswzz.prfluroanalyzer.photometer.PhotometerActivity;
 import com.whswzz.prfluroanalyzer.photometer.entity.PhotometerData;
+import com.whswzz.prfluroanalyzer.utils.LimitUnitUtil;
 import com.whswzz.prfluroanalyzer.utils.PrinterJPW;
 import com.zkzk.pra.R;
 import com.zkzk.pra.activity.DetectActivity;
@@ -385,7 +386,7 @@ public class PhotometerSpecimenDialog extends BaseDialog implements android.view
 							LogUtil.d(key);
 							Double v=limits.get(key);
 							if(null!=v) {
-								tvLimit.setText("参考限值："+String.format("%.3f", v)+" mg/kg");
+								tvLimit.setText("参考限值："+ LimitUnitUtil.formatLimit(v, MyApp.getApp().getLimitUnits().get(key)));
 								PhotometerSpecimenDialog.this.data.setLimit((float)(double)v);
 							}else {
 								tvLimit.setText("参考限值：");
